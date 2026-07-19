@@ -1,0 +1,32 @@
+<section id="experience" class="py-20 md:py-28 bg-white">
+  <div class="section-container">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="section-label justify-center">Experience</span>
+      <h2 class="section-title">
+        Professional Background
+      </h2>
+      <p class="section-subtitle">
+        Hands-on experience in technical support, development, and customer communication.
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-0">
+      @for (item of data.experience; track item.title; let i = $index) {
+        <div class="flex gap-4 pb-8 relative">
+          @if (i < data.experience.length - 1) {
+            <div class="absolute left-[15px] top-8 bottom-0 w-px bg-gray-200"></div>
+          }
+          <div class="w-8 h-8 border border-gray-900 bg-white flex items-center justify-center flex-shrink-0">
+            <span class="w-2 h-2 bg-gray-900"></span>
+          </div>
+          <div class="flex-1 min-w-0 pt-1">
+            <div class="card p-5">
+              <h3 class="text-sm font-bold text-gray-900 mb-2">{{ item.title }}</h3>
+              <p class="text-[12px] text-gray-600 leading-relaxed">{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

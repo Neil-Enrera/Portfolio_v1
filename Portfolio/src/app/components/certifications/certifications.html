@@ -1,0 +1,86 @@
+<section id="certifications" class="py-20 md:py-28 bg-gray-50">
+  <div class="section-container">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="section-label justify-center">Certifications</span>
+      <h2 class="section-title">
+        Professional Credentials
+      </h2>
+      <p class="section-subtitle">
+        Industry-recognized certifications demonstrating technical expertise and continuous learning.
+      </p>
+    </div>
+
+    @if (data.certifications.length) {
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        @for (cert of data.certifications; track cert.title) {
+          <div class="card p-5 card-hover cursor-pointer" (click)="openCert(cert)" role="button" tabindex="0" (keydown.enter)="openCert(cert)" (keydown.space)="openCert(cert); $event.preventDefault()" [attr.aria-label]="'View ' + cert.title + ' certificate'">
+            @if (cert.image && !brokenImages.has(cert.title)) {
+              <div class="w-full h-28 border border-gray-100 bg-gray-50 overflow-hidden mb-3 flex items-center justify-center p-2">
+                <img [src]="cert.image" [alt]="cert.title" class="w-full h-full object-contain" loading="lazy" (error)="onImageError(cert.title)">
+              </div>
+            } @else {
+              <div class="w-10 h-10 border border-gray-200 flex items-center justify-center mb-3">
+                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+              </div>
+            }
+            <h3 class="text-[13px] font-bold text-gray-900 mb-1 leading-snug">{{ cert.title }}</h3>
+            <p class="text-[11px] text-gray-500 font-medium mb-1">{{ cert.issuer }}</p>
+            <p class="text-[11px] text-gray-400">{{ cert.description }}</p>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="text-center text-gray-400 text-sm">No certifications to display.</p>
+    }
+  </div>
+</section>
+
+@if (selectedCert) {
+  <div class="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 animate-fade-in" (click)="closeCert()" role="dialog" aria-modal="true" [attr.aria-label]="selectedCert!.title">
+    <div class="relative bg-white max-w-lg w-full max-h-[85vh] overflow-y-auto border border-gray-200" (click)="$event.stopPropagation()">
+      <button class="absolute top-3 right-3 z-10 w-8 h-8 border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors" (click)="closeCert()" aria-label="Close modal">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      @if (selectedCert.image) {
+        <div class="w-full bg-gray-50 flex items-center justify-center p-6 group relative cursor-pointer border-b border-gray-200" (click)="openEnlarged(selectedCert.image!)">
+          <img [src]="selectedCert.image" [alt]="selectedCert.title" class="w-full h-auto object-contain max-h-[55vh]" loading="lazy" (error)="onImageError(selectedCert.title)">
+          <div class="absolute inset-0 flex items-center justify-center bg-black/0 hover:bg-black/10 transition-colors">
+            <div class="w-10 h-10 border border-gray-300 bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      } @else {
+        <div class="w-full h-48 bg-gray-50 flex items-center justify-center border-b border-gray-200">
+          <svg class="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+        </div>
+      }
+      <div class="p-6">
+        <h3 class="text-base font-bold text-gray-900 mb-2">{{ selectedCert.title }}</h3>
+        <p class="text-[12px] text-gray-500 font-medium mb-3">{{ selectedCert.issuer }}</p>
+        <p class="text-sm text-gray-600 mb-4">{{ selectedCert.description }}</p>
+      </div>
+    </div>
+  </div>
+}
+
+@if (enlargedImage) {
+  <div class="fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4 animate-fade-in" (click)="closeEnlarged()" role="dialog" aria-modal="true" aria-label="Enlarged certificate image">
+    <div class="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center" (click)="$event.stopPropagation()">
+      <button class="absolute -top-10 right-0 z-10 w-8 h-8 border border-gray-300 bg-white/90 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:border-gray-900 transition-colors" (click)="closeEnlarged()" aria-label="Close enlarged view">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <img [src]="enlargedImage" alt="Enlarged certificate" class="max-w-full max-h-[85vh] w-auto h-auto object-contain border border-gray-300" loading="lazy">
+    </div>
+  </div>
+}

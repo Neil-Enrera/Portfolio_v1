@@ -1,0 +1,187 @@
+<section id="projects" class="py-20 md:py-28 bg-gray-50">
+  <div class="section-container">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="section-label justify-center">Projects</span>
+      <h2 class="section-title">
+        Case Studies
+      </h2>
+      <p class="section-subtitle">
+        Real-world projects showing how I transform business needs into technical solutions.
+      </p>
+    </div>
+
+    @if (data.projects.length) {
+      <div class="space-y-4">
+        @for (project of data.projects; track project.id) {
+          <div class="card overflow-hidden card-hover">
+            <div class="p-6 md:p-8">
+              <div class="flex items-start gap-4">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[10px] uppercase tracking-widest font-medium text-gray-500 border border-gray-200 px-2 py-0.5">
+                      {{ project.category }}
+                    </span>
+                    @if (project.organization) {
+                      <span class="text-[11px] text-gray-400">{{ project.organization }}</span>
+                    }
+                  </div>
+                  <h3 class="text-base md:text-lg font-bold text-gray-900">{{ project.title }}</h3>
+                  <p class="text-[11px] text-gray-400 mt-0.5">Role: {{ project.role }}</p>
+                </div>
+                <button
+                  (click)="toggleProject(project.id)"
+                  class="flex-shrink-0 px-4 py-2 text-[11px] uppercase tracking-widest font-medium text-gray-700 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors cursor-pointer"
+                >
+                  {{ expandedProject() === project.id ? 'Show Less' : 'View Study' }}
+                </button>
+              </div>
+
+              <p class="text-sm text-gray-600 mt-3">{{ project.summary }}</p>
+
+              @if (expandedProject() === project.id) {
+                <div class="mt-6 pt-6 border-t border-gray-200 space-y-6 animate-fade-in-up">
+                  @let images = getProjectImages(project);
+                  @if (images.length) {
+                    <div class="relative border border-gray-200 bg-gray-50">
+                      @if (images.length > 1) {
+                        <button
+                          (click)="prevInlineImage(images)"
+                          class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 border border-white/30 bg-black/40 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/60 transition-all cursor-pointer"
+                          aria-label="Previous image"
+                        >
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        <button
+                          (click)="nextInlineImage(images)"
+                          class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 border border-white/30 bg-black/40 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/60 transition-all cursor-pointer"
+                          aria-label="Next image"
+                        >
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                        <div class="absolute top-2 right-2 z-10 bg-black/60 text-white text-[10px] uppercase tracking-widest px-2 py-0.5">
+                          {{ inlineImageIndex() + 1 }} / {{ images.length }}
+                        </div>
+                      }
+                      <div class="group relative cursor-pointer" (click)="openGallery(images, inlineImageIndex())">
+                        <img
+                          [src]="images[inlineImageIndex()]"
+                          [alt]="project.title"
+                          class="w-full h-auto max-h-96 object-contain"
+                          loading="lazy"
+                          (error)="imageError($event)"
+                        />
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center">
+                          <div class="w-10 h-10 border border-gray-300 bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <span class="pixel-dot bg-gray-500"></span>
+                        Problem
+                      </h4>
+                      <p class="text-sm text-gray-600 leading-relaxed">{{ project.problem }}</p>
+                    </div>
+                    <div>
+                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <span class="pixel-dot bg-gray-500"></span>
+                        Solution
+                      </h4>
+                      <p class="text-sm text-gray-600 leading-relaxed">{{ project.solution }}</p>
+                    </div>
+                  </div>
+
+                  @if (project.processFlow) {
+                    <div>
+                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <span class="pixel-dot bg-gray-500"></span>
+                        Process Flow
+                      </h4>
+                      <div class="flex flex-wrap gap-2">
+                        @for (step of project.processFlow; track step; let i = $index) {
+                          <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 border border-gray-300 text-gray-700 text-[10px] font-bold flex items-center justify-center flex-shrink-0">
+                              {{ i + 1 }}
+                            </span>
+                            <span class="text-sm text-gray-600">{{ step }}</span>
+                            @if (i < project.processFlow.length - 1) {
+                              <svg class="w-3 h-3 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                              </svg>
+                            }
+                          </div>
+                        }
+                      </div>
+                    </div>
+                  }
+
+                  <div>
+                    <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <span class="pixel-dot bg-gray-500"></span>
+                      Architecture
+                    </h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">{{ project.architecture }}</p>
+                  </div>
+
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-3">Technologies</h4>
+                      <div class="flex flex-wrap gap-1.5">
+                        @for (tech of project.technologies; track tech) {
+                          <span class="tag">{{ tech }}</span>
+                        }
+                      </div>
+                    </div>
+                    <div>
+                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-3">Key Features</h4>
+                      <ul class="space-y-1.5">
+                        @for (feature of project.features; track feature) {
+                          <li class="flex items-start gap-2 text-sm text-gray-600">
+                            <svg class="w-3.5 h-3.5 text-gray-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                            {{ feature }}
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span class="pixel-dot bg-gray-500"></span>
+                      Lessons Learned
+                    </h4>
+                    <p class="text-sm text-gray-500 leading-relaxed italic">
+                      "{{ project.lessonsLearned }}"
+                    </p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="text-center text-gray-400 text-sm">No projects to display.</p>
+    }
+  </div>
+</section>
+
+<app-image-gallery
+  [images]="galleryImages()"
+  [currentIndex]="galleryIndex()"
+  [opened]="galleryOpened()"
+  (closed)="closeGallery()"
+  (indexChange)="onGalleryIndexChange($event)"
+/>

@@ -1,0 +1,33 @@
+<section id="skills" class="py-20 md:py-28 bg-white">
+  <div class="section-container">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="section-label justify-center">Skills</span>
+      <h2 class="section-title">
+        Technical Toolkit
+      </h2>
+      <p class="section-subtitle">
+        Technologies and methodologies I use to build complete digital solutions.
+      </p>
+    </div>
+
+    @if (skillsData.length) {
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        @for (group of skillsData; track group.title) {
+          <div class="card p-6 card-hover">
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+              <span class="pixel-dot bg-gray-400"></span>
+              <h3 class="text-sm font-bold text-gray-900">{{ group.title }}</h3>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              @for (skill of group.items; track skill) {
+                <span class="tag">{{ skill }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="text-center text-gray-400 text-sm">No skills to display.</p>
+    }
+  </div>
+</section>
