@@ -47,6 +47,32 @@
   --text-xl: 24px;
   --text-2xl: 30px;
   --text-3xl: 40px;
+
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f1f5f9;
+}
+
+.dark {
+  --color-navy-900: #e2e8f0;
+  --color-navy-800: #cbd5e1;
+  --color-navy-700: #94a3b8;
+  --color-navy-600: #64748b;
+  --color-navy-500: #475569;
+  --color-slate-600: #cbd5e1;
+  --color-slate-500: #94a3b8;
+  --color-slate-400: #64748b;
+  --color-slate-300: #475569;
+  --color-accent: #60a5fa;
+  --color-accent-light: #93c5fd;
+  --color-accent-dark: #3b82f6;
+  --color-dark: #f1f5f9;
+  --color-light: #0a192f;
+  --color-canvas: hsl(220, 30%, 8%);
+  --color-surface: hsl(220, 25%, 12%);
+  --color-bg-primary: #0a192f;
+  --color-bg-secondary: #0f2744;
+  --color-bg-tertiary: #143659;
 }
 
 button, a, [role="button"] {
@@ -149,6 +175,42 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
+
+.img-fallback {
+  object-fit: contain;
+  padding: 1rem;
+  background: #f1f5f9;
+}
+
+.dark body {
+  background-color: #0a192f;
+}
+
+.dark .bg-white { background-color: #143659 !important; }
+.dark .bg-slate-50 { background-color: #0f2744 !important; }
+.dark .bg-slate-100 { background-color: #1a4a73 !important; }
+.dark .bg-white\/95 { background-color: rgba(15, 39, 68, 0.95) !important; }
+.dark .bg-white\/90 { background-color: rgba(20, 54, 89, 0.9) !important; }
+.dark .bg-white\/10 { background-color: rgba(255, 255, 255, 0.08) !important; }
+.dark .bg-white\/5 { background-color: rgba(255, 255, 255, 0.05) !important; }
+.dark .bg-navy-900\/10 { background-color: rgba(226, 232, 240, 0.1) !important; }
+
+.dark .text-navy-900 { color: #e2e8f0 !important; }
+.dark .text-slate-600 { color: #cbd5e1 !important; }
+.dark .text-slate-500 { color: #94a3b8 !important; }
+.dark .text-slate-400 { color: #64748b !important; }
+.dark .text-slate-300 { color: #475569 !important; }
+.dark .text-slate-700 { color: #cbd5e1 !important; }
+
+.dark .border-slate-200 { border-color: #1a4a73 !important; }
+.dark .border-slate-100 { border-color: #143659 !important; }
+.dark .border-white\/10 { border-color: rgba(255, 255, 255, 0.08) !important; }
+.dark .border-white\/20 { border-color: rgba(255, 255, 255, 0.12) !important; }
+
+.dark .shadow-sm { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) !important; }
+.dark .shadow-xs { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important; }
+.dark .shadow-md { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3) !important; }
+.dark .shadow-2xl { box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5) !important; }
 
 @keyframes fadeInUp {
   from {

@@ -38,3 +38,17 @@
   color: white;
   background-color: var(--color-navy-900);
 }
+
+.mobile-menu {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+  padding: 0;
+}
+
+.mobile-menu.open {
+  max-height: 400px;
+  opacity: 1;
+  padding-bottom: 1rem;
+}

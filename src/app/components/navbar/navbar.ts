@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, signal } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, signal } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,11 +6,12 @@ import { Component, HostListener, OnDestroy, signal } from '@angular/core';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
-export class NavbarComponent implements OnDestroy {
+export class NavbarComponent implements OnInit, OnDestroy {
   isScrolled = signal(false);
   isMobileMenuOpen = signal(false);
   activeSection = signal('');
   isAutoScrolling = signal(false);
+  isDarkMode = signal(false);
 
   private autoScrollTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -21,6 +22,20 @@ export class NavbarComponent implements OnDestroy {
     { label: 'Certifications', section: 'certifications' },
     { label: 'Contact', section: 'contact' }
   ];
+
+  ngOnInit() {
+    const stored = localStorage.getItem('darkMode');
+    if (stored === 'true' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      this.isDarkMode.set(true);
+      document.documentElement.classList.add('dark');
+    }
+  }
+
+  toggleDarkMode() {
+    this.isDarkMode.update(v => !v);
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('darkMode', String(this.isDarkMode()));
+  }
 
   @HostListener('window:scroll', [])
   onScroll() {
@@ -81,9 +96,11 @@ export class NavbarComponent implements OnDestroy {
       this.autoScrollTimer = null;
     }, 1000);
 
-    const el = document.getElementById(section);
+    const el = document.getElementById(section === 'hero' ? 'hero' : section);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 80;
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   }
 }

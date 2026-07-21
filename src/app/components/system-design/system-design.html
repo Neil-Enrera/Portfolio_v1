@@ -14,11 +14,6 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         @for (design of data.systemDesigns; track design.title) {
           <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm card-hover">
-            @if (design.image) {
-              <div class="w-full h-36 rounded-lg bg-slate-50 border border-slate-100 overflow-hidden mb-4 flex items-center justify-center p-2">
-                <img [src]="design.image" [alt]="design.title" class="w-full h-full object-contain" loading="lazy" (error)="$event.target.style.display='none'">
-              </div>
-            }
             <h3 class="text-lg font-bold text-navy-900 mb-2">{{ design.title }}</h3>
             <p class="text-sm text-slate-600 mb-4">{{ design.description }}</p>
             <ul class="space-y-2">

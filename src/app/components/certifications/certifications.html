@@ -10,25 +10,113 @@
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      @for (cert of data.certifications; track cert.title) {
-        <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm card-hover">
-          @if (cert.image) {
-            <div class="w-full h-28 rounded-lg bg-slate-50 border border-slate-100 overflow-hidden mb-3 flex items-center justify-center p-2">
-              <img [src]="cert.image" [alt]="cert.title" class="w-full h-full object-contain" loading="lazy" (error)="$event.target.style.display='none'">
-            </div>
-          } @else {
-            <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-              </svg>
-            </div>
-          }
-          <h3 class="text-sm font-bold text-navy-900 mb-1 leading-snug">{{ cert.title }}</h3>
-          <p class="text-xs text-accent font-medium mb-1">{{ cert.issuer }}</p>
-          <p class="text-xs text-slate-500">{{ cert.description }}</p>
-        </div>
-      }
-    </div>
+    @if (data.certifications.length) {
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        @for (cert of data.certifications; track cert.title) {
+          <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm card-hover cursor-pointer" (click)="openCert(cert)" role="button" tabindex="0" (keydown.enter)="openCert(cert)" (keydown.space)="openCert(cert); $event.preventDefault()" [attr.aria-label]="'View ' + cert.title + ' certificate'">
+            @if (cert.image && !isPdf(cert.image)) {
+              <div class="w-full h-28 rounded-lg bg-slate-50 border border-slate-100 overflow-hidden mb-3 flex items-center justify-center p-2">
+                <img [src]="cert.image" [alt]="cert.title" class="w-full h-full object-contain" loading="lazy" appImageFallback>
+              </div>
+            } @else if (cert.pdf) {
+              <div class="w-full h-28 rounded-lg bg-slate-50 border border-slate-100 overflow-hidden mb-3 flex items-center justify-center p-2">
+                <div class="flex flex-col items-center gap-1 text-slate-400">
+                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 3v4a1 1 0 001 1h4" />
+                  </svg>
+                  <span class="text-xs text-slate-500">View Certificate</span>
+                </div>
+              </div>
+            } @else {
+              <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+              </div>
+            }
+            <h3 class="text-sm font-bold text-navy-900 mb-1 leading-snug">{{ cert.title }}</h3>
+            <p class="text-xs text-accent font-medium mb-1">{{ cert.issuer }}</p>
+            <p class="text-xs text-slate-500">{{ cert.description }}</p>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="text-center text-slate-500">No certifications to display.</p>
+    }
   </div>
 </section>
+
+@if (selectedCert) {
+  <div class="modal-overlay fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" (click)="closeCert()" role="dialog" aria-modal="true" [attr.aria-label]="selectedCert!.title" appFocusTrap>
+    <div class="modal-content relative bg-white rounded-2xl max-w-lg w-full shadow-2xl max-h-[85vh] overflow-y-auto" (click)="$event.stopPropagation()">
+      <button class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 shadow flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors" (click)="closeCert()" aria-label="Close modal">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      @if (selectedCert.image && !isPdf(selectedCert.image)) {
+        <div class="w-full bg-slate-50 flex items-center justify-center p-6 rounded-t-2xl group relative cursor-pointer" (click)="openEnlarged(selectedCert.image!)">
+          <img [src]="selectedCert.image" [alt]="selectedCert.title" class="w-full h-auto object-contain max-h-[55vh]" loading="lazy" appImageFallback>
+          <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors rounded-t-2xl">
+            <div class="w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg class="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      } @else if (selectedCert.pdf) {
+        <div class="w-full bg-slate-50 rounded-t-2xl overflow-hidden" style="height: 55vh;">
+          <object [data]="selectedCert.pdf" type="application/pdf" class="w-full h-full">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 text-slate-400 p-6">
+              <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 3v4a1 1 0 001 1h4" />
+              </svg>
+              <p class="text-sm text-slate-500">Preview not available</p>
+              <button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent/90 transition-colors" (click)="openPdf(selectedCert.pdf!)" aria-label="Open PDF in new tab">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Open PDF
+              </button>
+            </div>
+          </object>
+        </div>
+      } @else {
+        <div class="w-full h-48 bg-slate-50 flex items-center justify-center rounded-t-2xl">
+          <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+        </div>
+      }
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-navy-900 mb-2">{{ selectedCert.title }}</h3>
+        <p class="text-sm text-accent font-medium mb-3">{{ selectedCert.issuer }}</p>
+        <p class="text-sm text-slate-600 mb-4">{{ selectedCert.description }}</p>
+        @if (selectedCert.pdf) {
+          <button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent/90 transition-colors" (click)="openPdf(selectedCert.pdf!)" aria-label="Open PDF in new tab">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Open PDF
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+}
+
+@if (enlargedImage) {
+  <div class="lightbox-overlay fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4" (click)="closeEnlarged()" role="dialog" aria-modal="true" aria-label="Enlarged certificate image">
+    <div class="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center" (click)="$event.stopPropagation()">
+      <button class="absolute -top-10 right-0 z-10 w-8 h-8 rounded-full bg-white/90 shadow flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors" (click)="closeEnlarged()" aria-label="Close enlarged view">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <img [src]="enlargedImage" alt="Enlarged certificate" class="lightbox-image max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl" loading="lazy">
+    </div>
+  </div>
+}

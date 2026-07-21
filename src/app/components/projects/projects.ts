@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { portfolio } from '../../shared/data/portfolio';
+import { ImageFallbackDirective } from '../../shared/image-fallback.directive';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [ImageFallbackDirective],
   templateUrl: './projects.html',
   styleUrl: './projects.css'
 })
@@ -13,10 +14,5 @@ export class ProjectsComponent {
 
   toggleProject(id: number) {
     this.expandedProject.update(v => v === id ? null : id);
-  }
-
-  imageError(event: Event) {
-    const img = event.target as HTMLElement;
-    img.style.display = 'none';
   }
 }

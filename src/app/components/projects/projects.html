@@ -10,11 +10,17 @@
       </p>
     </div>
 
-    <div class="space-y-6">
-      @for (project of data.projects; track project.id) {
-        <div class="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden card-hover">
+    @if (data.projects.length) {
+      <div class="space-y-6">
+        @for (project of data.projects; track project.id) {
+          <div class="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden card-hover">
           <div class="p-6 md:p-8">
-            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+            <div class="flex items-start gap-4">
+              @if (project.image && expandedProject() !== project.id) {
+                <div class="flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 hidden sm:block">
+                  <img [src]="project.image" alt="" class="w-full h-full object-cover" loading="lazy" appImageFallback>
+                </div>
+              }
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-3 mb-2">
                   <span class="px-3 py-1 text-xs font-semibold text-accent bg-accent/10 rounded-full">
@@ -41,7 +47,7 @@
               <div class="mt-6 pt-6 border-t border-slate-100 space-y-6 animate-fade-in-up">
                 @if (project.image) {
                   <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-                    <img [src]="project.image" [alt]="project.title" class="w-full h-auto max-h-80 object-cover" loading="lazy" (error)="imageError($event)">
+                    <img [src]="project.image" [alt]="project.title" class="w-full h-auto max-h-80 object-cover" loading="lazy" appImageFallback>
                   </div>
                 }
                 <div class="grid md:grid-cols-2 gap-6">
@@ -133,6 +139,9 @@
           </div>
         </div>
       }
-    </div>
+      </div>
+    } @else {
+      <p class="text-center text-slate-500">No projects to display.</p>
+    }
   </div>
 </section>

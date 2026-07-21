@@ -1,0 +1,46 @@
+<section id="about" class="py-20 md:py-28 bg-white">
+  <div class="section-container">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <div>
+        <span class="section-label">About</span>
+        <h2 class="section-title mt-4">
+          Problem Solver,<br>Not Just a Programmer
+        </h2>
+        <div class="mt-6 space-y-4 text-sm text-gray-600 leading-relaxed">
+          <p>{{ data.about.objective }}</p>
+          <p>{{ data.about.details }}</p>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-8">
+          @for (item of ['System Analysis', 'Workflow Design', 'Solution Architecture', 'Full Stack Development', 'AI & Agentic']; track item) {
+            <span class="tag">
+              {{ item }}
+            </span>
+          }
+        </div>
+      </div>
+
+      <div>
+        <span class="section-label">Process</span>
+        <h3 class="section-title mt-4">
+          How I Work
+        </h3>
+        <div class="mt-8 space-y-0">
+          @for (step of processSteps; track step.title) {
+            <div class="flex gap-4 pb-8 relative">
+              @if (!$last) {
+                <div class="absolute left-[15px] top-8 bottom-0 w-px bg-gray-200"></div>
+              }
+              <div class="w-8 h-8 flex items-center justify-center border border-gray-900 bg-white flex-shrink-0">
+                <span class="text-[11px] font-bold text-gray-900">{{ $index + 1 }}</span>
+              </div>
+              <div class="flex-1 min-w-0 pt-1">
+                <h4 class="text-sm font-bold text-gray-900">{{ step.title }}</h4>
+                <p class="text-[12px] text-gray-500 mt-1 leading-relaxed">{{ step.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

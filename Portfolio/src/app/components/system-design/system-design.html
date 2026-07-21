@@ -1,0 +1,70 @@
+<section id="system-design" class="py-20 md:py-28 bg-white">
+  <div class="section-container">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="section-label justify-center">System Design</span>
+      <h2 class="section-title">
+        Engineering Behind the Code
+      </h2>
+      <p class="section-subtitle">
+        Every project starts with analysis, planning, and design. Here's how I approach building systems from the ground up.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        @for (design of data.systemDesigns; track design.title) {
+          <div class="card p-6 card-hover">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="pixel-dot bg-gray-400"></span>
+              <h3 class="text-sm font-bold text-gray-900">{{ design.title }}</h3>
+            </div>
+            <p class="text-[12px] text-gray-500 mb-4">{{ design.description }}</p>
+            <ul class="space-y-1.5">
+              @for (item of design.items; track item) {
+                <li class="flex items-center gap-2 text-[12px] text-gray-600">
+                  <svg class="w-3 h-3 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                  {{ item }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+
+      <div class="border border-gray-900 bg-gray-900 p-8 md:p-10 text-white">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-sm font-bold mb-6 uppercase tracking-widest">My Design Process</h3>
+            <div class="space-y-5">
+              @for (step of [
+                { num: '1', title: 'Requirements Gathering', desc: 'Understanding business needs, user stories, and system constraints through stakeholder collaboration.' },
+                { num: '2', title: 'Process Analysis', desc: 'Mapping current workflows, identifying inefficiencies, and defining improvement opportunities.' },
+                { num: '3', title: 'Solution Design', desc: 'Creating architecture diagrams, data models, and wireframes that bridge business and technical requirements.' },
+                { num: '4', title: 'Architecture Decisions', desc: 'Selecting appropriate technologies, patterns, and structures based on scalability, maintainability, and business goals.' }
+              ]; track step.num) {
+                <div class="flex gap-3">
+                  <span class="w-7 h-7 border border-gray-500 text-gray-300 text-[11px] font-bold flex items-center justify-center flex-shrink-0">
+                    {{ step.num }}
+                  </span>
+                  <div>
+                    <p class="text-[13px] font-semibold text-white">{{ step.title }}</p>
+                    <p class="text-[12px] text-gray-400 mt-0.5">{{ step.desc }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+          <div class="hidden md:flex justify-center">
+            <div class="w-full max-w-xs aspect-square border border-gray-700 flex items-center justify-center p-8">
+              <svg class="w-full h-full text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

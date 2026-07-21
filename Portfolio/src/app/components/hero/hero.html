@@ -1,0 +1,75 @@
+<section #heroSection id="hero" class="relative min-h-screen flex items-center bg-white overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none pixel-grid"></div>
+
+  <div class="section-container relative z-10 w-full pt-24 pb-16 md:pt-32 md:pb-20">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="space-y-8">
+        <div class="flex items-center gap-2 text-gray-400 text-[11px] uppercase tracking-widest">
+          <span class="pixel-dot bg-gray-300"></span>
+          <span>Full Stack Developer</span>
+          <span class="terminal-cursor"></span>
+        </div>
+
+        <h1 class="text-[clamp(1.75rem,5vw,3rem)] font-bold text-gray-900 leading-tight tracking-tight">
+          {{ data.heroHeadline }}
+        </h1>
+
+        <p class="text-sm md:text-base text-gray-500 leading-relaxed max-w-lg">
+          {{ data.heroSubtext }}
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            [href]="data.resume.file"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View resume (PDF)"
+            class="px-5 py-2.5 text-[12px] uppercase tracking-widest font-medium text-white bg-gray-900 border border-gray-900 hover:bg-gray-800 transition-colors inline-flex items-center gap-2 cursor-pointer"
+          >
+            <svg class="w-3.5 h-3.5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            {{ data.resume.label }}
+          </a>
+          <button
+            (click)="scrollTo('projects')"
+            class="px-5 py-2.5 text-[12px] uppercase tracking-widest font-medium text-gray-700 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors inline-flex items-center gap-2 cursor-pointer"
+          >
+            View Projects
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="pt-4 hidden md:block">
+          <div class="flex items-center gap-2 text-[11px] text-gray-400">
+            <span class="text-gray-300">$</span>
+            <span>cat /home/developer/about.md</span>
+          </div>
+          <div class="mt-2 text-[11px] text-gray-500 leading-relaxed max-w-md">
+            <span class="text-gray-300">//</span> {{ data.about.objective.substring(0, 80) }}...
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center lg:items-end">
+        <div class="relative">
+          <div class="border border-gray-200 p-1">
+            <img
+              src="images/profile/Profile.png"
+              alt="{{ data.name }}"
+              class="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-cover"
+            />
+          </div>
+          <div class="absolute -bottom-3 -right-3 w-full h-full border border-gray-200 -z-10"></div>
+          <div class="absolute -top-3 -left-3 w-full h-full border border-gray-100 -z-10"></div>
+        </div>
+        <div class="text-center mt-5">
+          <h2 class="text-base font-bold text-gray-900">{{ data.name }}</h2>
+          <p class="text-[11px] text-gray-400 uppercase tracking-widest mt-1">Full Stack Developer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

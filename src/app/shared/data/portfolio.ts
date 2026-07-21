@@ -160,31 +160,26 @@ export const portfolio = {
     {
       title: 'Entity Relationship Diagrams',
       description: 'Comprehensive ERDs showing database structure, relationships, and normalization for business systems.',
-      image: '/images/system-design/erds.jpg',
       items: ['Logical data models', 'Physical schema designs', 'Relationship mapping', 'Normalization documentation']
     },
     {
       title: 'System Architecture Diagrams',
       description: 'High-level architecture views showing component interactions, data flow, and system boundaries.',
-      image: '/images/system-design/architecture.jpg',
       items: ['Layered architecture designs', 'Component interaction diagrams', 'Deployment topology', 'API structure maps']
     },
     {
       title: 'Workflow & Process Maps',
       description: 'Detailed process flows showing business operations, decision points, and system interactions.',
-      image: '/images/system-design/workflow.jpg',
       items: ['Business process flows', 'User journey maps', 'System interaction diagrams', 'Decision trees']
     },
     {
       title: 'User Flow & Wireframes',
       description: 'User-centered design artifacts showing navigation patterns, screen layouts, and interaction design.',
-      image: '/images/system-design/wireframes.jpg',
       items: ['User flow diagrams', 'Wireframe prototypes', 'Screen mockups', 'Navigation maps']
     },
     {
       title: 'Use Case & Requirements',
       description: 'Structured requirements documentation capturing functional needs, system boundaries, and actor interactions.',
-      image: '/images/system-design/use-cases.jpg',
       items: ['Use case specifications', 'Activity diagrams', 'Requirement traceability', 'Stakeholder analysis']
     }
   ],
@@ -193,55 +188,57 @@ export const portfolio = {
     {
       title: 'CCNA (Cisco Certified Network Associate)',
       issuer: 'Cisco Networking Academy',
-      image: '/images/certifications/ccna.jpg',
+      image: '/images/certifications/Enrera_Neil_Networking_Basics(CiscoNetworkingAcademy)_page-0001.jpg',
+      pdf: '/images/certifications/Enrera_Neil_Networking_Basics(CiscoNetworkingAcademy).pdf',
       description: 'Networking fundamentals, routing, switching, and network security.'
     },
     {
       title: 'Alibaba Cloud Big Data Associate',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-big-data.jpg',
+      image: '/images/certifications/alibaba-big-data.png',
       description: 'Big data processing, storage, and analytics on cloud infrastructure.'
     },
     {
       title: 'ECS Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-ecs.jpg',
+      image: '/images/certifications/alibaba-ecs.png',
       description: 'Elastic Compute Service configuration and management.'
     },
     {
       title: 'SLB Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-slb.jpg',
+      image: '/images/certifications/alibaba-slb.png',
       description: 'Server Load Balancer implementation and optimization.'
     },
     {
       title: 'Auto Scaling Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-auto-scaling.jpg',
+      image: '/images/certifications/alibaba-auto-scaling.png',
       description: 'Automated scaling strategies for cloud resources.'
     },
     {
       title: 'OSS Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-oss.jpg',
+      image: '/images/certifications/alibaba-oss.png',
       description: 'Object Storage Service architecture and best practices.'
     },
     {
       title: 'ApsaraDB RDS Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-rds.jpg',
+      image: '/images/certifications/alibaba-rds.png',
       description: 'Relational Database Service management on Alibaba Cloud.'
     },
     {
       title: 'IoT Foundations: Operating Systems Fundamentals',
       issuer: 'IoT Academy',
-      image: '/images/certifications/iot-foundations.jpg',
+      image: '/images/certifications/CertificateOfCompletion_IoT Foundations Operating Systems Fundamentals_pages-to-jpg-0001.jpg',
+      pdf: '/images/certifications/CertificateOfCompletion_IoT Foundations Operating Systems Fundamentals.pdf',
       description: 'Operating system concepts for IoT device development.'
     },
     {
       title: 'Vibe Code and Agentic Coding',
       issuer: 'AI Seminar',
-      image: '/images/certifications/vibe-code.jpg',
+      image: '/images/certifications/Vibe%20Code%20and%20Agentic%20Coding.png',
       description: 'Modern AI-assisted development techniques including agentic workflows, prompt engineering, and AI-powered coding practices.'
     }
   ],
@@ -266,6 +263,7 @@ export const portfolio = {
     email: 'neilandreienrera@gmail.com',
     github: 'https://github.com/NeilEnrera',
     linkedin: 'https://linkedin.com/in/andreicalo',
-    facebook: 'https://www.facebook.com/neilxbzjsj/'
+    facebook: 'https://www.facebook.com/neilxbzjsj/',
+    formAction: ''
   }
 };
