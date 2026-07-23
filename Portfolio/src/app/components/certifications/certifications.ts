@@ -15,7 +15,7 @@ export interface Certification {
   styleUrl: './certifications.css'
 })
 export class CertificationsComponent {
-  data = portfolio;
+  certifications = portfolio.certifications;
   selectedCert: Certification | null = null;
   enlargedImage: string | null = null;
   brokenImages = new Set<string>();

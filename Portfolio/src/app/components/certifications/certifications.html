@@ -1,18 +1,18 @@
 <section id="certifications" class="py-20 md:py-28 bg-gray-50">
   <div class="section-container">
     <div class="text-center max-w-2xl mx-auto mb-14">
-      <span class="section-label justify-center">Certifications</span>
+      <span class="section-label justify-center">Courses & Certifications</span>
       <h2 class="section-title">
-        Professional Credentials
+        Courses & Certifications
       </h2>
       <p class="section-subtitle">
-        Industry-recognized certifications demonstrating technical expertise and continuous learning.
+        Formal certifications and continuous learning through courses and seminars.
       </p>
     </div>
 
-    @if (data.certifications.length) {
+    @if (certifications.length) {
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        @for (cert of data.certifications; track cert.title) {
+        @for (cert of certifications; track cert.title) {
           <div class="card p-5 card-hover cursor-pointer" (click)="openCert(cert)" role="button" tabindex="0" (keydown.enter)="openCert(cert)" (keydown.space)="openCert(cert); $event.preventDefault()" [attr.aria-label]="'View ' + cert.title + ' certificate'">
             @if (cert.image && !brokenImages.has(cert.title)) {
               <div class="w-full h-28 border border-gray-100 bg-gray-50 overflow-hidden mb-3 flex items-center justify-center p-2">
@@ -31,8 +31,6 @@
           </div>
         }
       </div>
-    } @else {
-      <p class="text-center text-gray-400 text-sm">No certifications to display.</p>
     }
   </div>
 </section>
@@ -55,12 +53,6 @@
               </svg>
             </div>
           </div>
-        </div>
-      } @else {
-        <div class="w-full h-48 bg-gray-50 flex items-center justify-center border-b border-gray-200">
-          <svg class="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-          </svg>
         </div>
       }
       <div class="p-6">

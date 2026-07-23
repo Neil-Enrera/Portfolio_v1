@@ -282,7 +282,6 @@ export const portfolio = {
     {
       title: 'Vibe Code and Agentic Coding',
       issuer: 'AI Seminar',
-      image: 'images/certifications/vibe-code-agentic-coding.png',
       description: 'Modern AI-assisted development techniques including agentic workflows, prompt engineering, and AI-powered coding practices.'
     }
   ],
@@ -305,7 +304,7 @@ export const portfolio = {
 
   contact: {
     email: 'neilandreienrera@gmail.com',
-    github: 'https://github.com/NeilEnrera',
+    github: 'https://github.com/Neil-Enrera',
     linkedin: 'https://www.linkedin.com/in/neil-andrei-enrera-41339b288/',
     facebook: 'https://www.facebook.com/neilxbzjsj/',
     formAction: ''
