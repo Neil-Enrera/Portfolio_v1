@@ -1,0 +1,147 @@
+<section id="projects" class="py-20 md:py-28 bg-slate-50">
+  <div class="section-container">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-accent font-semibold text-sm tracking-widest uppercase">Featured Projects</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mt-3 mb-4">
+        Case Studies
+      </h2>
+      <p class="text-slate-600">
+        Real-world projects showing how I transform business needs into technical solutions.
+      </p>
+    </div>
+
+    @if (data.projects.length) {
+      <div class="space-y-6">
+        @for (project of data.projects; track project.id) {
+          <div class="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden card-hover">
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4">
+              @if (project.image && expandedProject() !== project.id) {
+                <div class="flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 hidden sm:block">
+                  <img [src]="project.image" alt="" class="w-full h-full object-cover" loading="lazy" appImageFallback>
+                </div>
+              }
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="px-3 py-1 text-xs font-semibold text-accent bg-accent/10 rounded-full">
+                    {{ project.category }}
+                  </span>
+                  @if (project.organization) {
+                    <span class="text-xs text-slate-400">{{ project.organization }}</span>
+                  }
+                </div>
+                <h3 class="text-xl md:text-2xl font-bold text-navy-900">{{ project.title }}</h3>
+                <p class="text-sm text-slate-500 mt-1">Role: {{ project.role }}</p>
+              </div>
+              <button
+                (click)="toggleProject(project.id)"
+                class="flex-shrink-0 px-4 py-2 text-sm font-medium text-accent hover:bg-accent/10 rounded-lg transition-colors cursor-pointer"
+              >
+                {{ expandedProject() === project.id ? 'Show Less' : 'View Case Study' }}
+              </button>
+            </div>
+
+            <p class="text-slate-600">{{ project.summary }}</p>
+
+            @if (expandedProject() === project.id) {
+              <div class="mt-6 pt-6 border-t border-slate-100 space-y-6 animate-fade-in-up">
+                @if (project.image) {
+                  <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+                    <img [src]="project.image" [alt]="project.title" class="w-full h-auto max-h-80 object-cover" loading="lazy" appImageFallback>
+                  </div>
+                }
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                      Problem
+                    </h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">{{ project.problem }}</p>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 bg-accent-light rounded-full"></span>
+                      Solution
+                    </h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">{{ project.solution }}</p>
+                  </div>
+                </div>
+
+                @if (project.processFlow) {
+                  <div>
+                    <h4 class="font-bold text-navy-900 mb-3 flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                      Process Flow
+                    </h4>
+                    <div class="flex flex-wrap gap-3">
+                      @for (step of project.processFlow; track step; let i = $index) {
+                        <div class="flex items-center gap-2">
+                          <span class="w-7 h-7 rounded-full bg-accent/10 text-accent text-xs font-bold flex items-center justify-center flex-shrink-0">
+                            {{ i + 1 }}
+                          </span>
+                          <span class="text-sm text-slate-600">{{ step }}</span>
+                          @if (i < project.processFlow.length - 1) {
+                            <svg class="w-4 h-4 text-slate-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                          }
+                        </div>
+                      }
+                    </div>
+                  </div>
+                }
+
+                <div>
+                  <h4 class="font-bold text-navy-900 mb-3 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                    Architecture
+                  </h4>
+                  <p class="text-sm text-slate-600 leading-relaxed">{{ project.architecture }}</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-bold text-navy-900 mb-3">Technologies</h4>
+                    <div class="flex flex-wrap gap-2">
+                      @for (tech of project.technologies; track tech) {
+                        <span class="px-3 py-1.5 text-sm font-medium bg-navy-900/10 text-navy-900 rounded-lg">
+                          {{ tech }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-navy-900 mb-3">Key Features</h4>
+                    <ul class="space-y-1.5">
+                      @for (feature of project.features; track feature) {
+                        <li class="flex items-start gap-2 text-sm text-slate-600">
+                          <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          {{ feature }}
+                        </li>
+                      }
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-bold text-navy-900 mb-2 flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 bg-navy-500 rounded-full"></span>
+                    Lessons Learned
+                  </h4>
+                  <p class="text-sm text-slate-600 leading-relaxed italic">
+                    "{{ project.lessonsLearned }}"
+                  </p>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+      </div>
+    } @else {
+      <p class="text-center text-slate-500">No projects to display.</p>
+    }
+  </div>
+</section>
