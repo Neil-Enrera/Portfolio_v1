@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, HostListener, OnDestroy, signal } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,12 +6,11 @@ import { Component, HostListener, OnDestroy, OnInit, signal } from '@angular/cor
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnDestroy {
   isScrolled = signal(false);
   isMobileMenuOpen = signal(false);
   activeSection = signal('');
   isAutoScrolling = signal(false);
-  isDarkMode = signal(false);
 
   private autoScrollTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -19,23 +18,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     { label: 'About', section: 'about' },
     { label: 'Expertise', section: 'expertise' },
     { label: 'Projects', section: 'projects' },
-    { label: 'Certifications', section: 'certifications' },
+    { label: 'Courses & Certifications', section: 'certifications' },
     { label: 'Contact', section: 'contact' }
   ];
-
-  ngOnInit() {
-    const stored = localStorage.getItem('darkMode');
-    if (stored === 'true' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      this.isDarkMode.set(true);
-      document.documentElement.classList.add('dark');
-    }
-  }
-
-  toggleDarkMode() {
-    this.isDarkMode.update(v => !v);
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('darkMode', String(this.isDarkMode()));
-  }
 
   @HostListener('window:scroll', [])
   onScroll() {
@@ -96,11 +81,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.autoScrollTimer = null;
     }, 1000);
 
-    const el = document.getElementById(section === 'hero' ? 'hero' : section);
+    const el = document.getElementById(section);
     if (el) {
-      const navHeight = 80;
-      const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
-      window.scrollTo({ top, behavior: 'smooth' });
+      el.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
 }

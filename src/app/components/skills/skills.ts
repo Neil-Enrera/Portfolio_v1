@@ -15,7 +15,6 @@ export class SkillsComponent {
     { title: 'Backend', items: this.data.skills.backend, color: 'navy' },
     { title: 'Database', items: this.data.skills.database, color: 'accent' },
     { title: 'Tools', items: this.data.skills.tools, color: 'navy' },
-    { title: 'Analysis & Design', items: this.data.skills.analysis, color: 'accent' },
     { title: 'AI & Agentic', items: this.data.skills.ai, color: 'accent' },
   ];
 }

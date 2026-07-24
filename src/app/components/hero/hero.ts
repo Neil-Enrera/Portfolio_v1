@@ -46,4 +46,16 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
       }
     }
   }
+
+  downloadResume() {
+    if (isPlatformBrowser(this.platformId)) {
+      const link = document.createElement('a');
+      link.href = this.data.resume.file;
+      link.download = 'Neil_Enrera_CV.pdf';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
 }

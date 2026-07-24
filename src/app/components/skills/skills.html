@@ -1,37 +1,33 @@
 <section id="skills" class="py-20 md:py-28 bg-white">
   <div class="section-container">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-accent font-semibold text-sm tracking-widest uppercase">Skills & Technologies</span>
-      <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mt-3 mb-4">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="section-label justify-center">Skills</span>
+      <h2 class="section-title">
         Technical Toolkit
       </h2>
-      <p class="text-slate-600">
+      <p class="section-subtitle">
         Technologies and methodologies I use to build complete digital solutions.
       </p>
     </div>
 
     @if (skillsData.length) {
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         @for (group of skillsData; track group.title) {
-          <div class="p-6 md:p-8 rounded-xl border border-slate-200 bg-white shadow-sm card-hover">
-            <h3 class="text-lg font-bold text-navy-900 mb-4 pb-3 border-b border-slate-100">
-              {{ group.title }}
-            </h3>
-            <div class="flex flex-wrap gap-2">
+          <div class="card p-6 card-hover">
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+              <span class="pixel-dot bg-gray-400"></span>
+              <h3 class="text-sm font-bold text-gray-900">{{ group.title }}</h3>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
               @for (skill of group.items; track skill) {
-                <span class="px-3 py-1.5 text-sm font-medium rounded-lg"
-                  [class]="group.color === 'accent'
-                    ? 'bg-accent/10 text-accent'
-                    : 'bg-navy-900/10 text-navy-900'">
-                  {{ skill }}
-                </span>
+                <span class="tag">{{ skill }}</span>
               }
             </div>
           </div>
         }
       </div>
     } @else {
-      <p class="text-center text-slate-500">No skills to display.</p>
+      <p class="text-center text-gray-400 text-sm">No skills to display.</p>
     }
   </div>
 </section>

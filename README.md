@@ -1,59 +1,60 @@
-# PortfolioV1
+# Neil Andrei Enrera — Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.12.
+A personal portfolio website showcasing projects, skills, certifications, and system design work.
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+- **Framework:** Angular 21
+- **Styling:** Tailwind CSS 4
+- **Language:** TypeScript
+- **Build:** Static output (SSG)
+- **Testing:** Vitest
+- **Formatting:** Prettier
+
+## Getting Started
 
 ```bash
+# Install dependencies
+npm install
+
+# Start dev server
 ng serve
+
+# Open http://localhost:4200
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Output goes to `dist/`.
 
-## Running unit tests
+## Project Structure
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```
+src/
+├── app/
+│   ├── components/    # UI components (hero, projects, skills, etc.)
+│   ├── pages/         # Route-level components
+│   └── shared/        # Directives, data, reusable components
+├── styles.css
+└── main.ts
 ```
 
-## Running end-to-end tests
+## Sections
 
-For end-to-end (e2e) testing, run:
+- **Hero** — Introduction and tagline
+- **About** — Background and objective
+- **Expertise** — Core competencies
+- **Skills** — Technical skill groups
+- **Projects** — Featured work with case studies
+- **Experience** — Work history
+- **Certifications** — Earned credentials
+- **System Design** — Architecture and diagram samples
+- **Contact** — Email and social links
 
-```bash
-ng e2e
-```
+## License
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Personal project — not open source.

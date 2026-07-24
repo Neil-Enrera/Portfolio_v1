@@ -1,26 +1,24 @@
 import { Component, HostListener } from '@angular/core';
 import { portfolio } from '../../shared/data/portfolio';
-import { ImageFallbackDirective } from '../../shared/image-fallback.directive';
-import { FocusTrapDirective } from '../../shared/focus-trap.directive';
 
 export interface Certification {
   title: string;
   issuer: string;
   image?: string;
-  pdf?: string;
   description: string;
 }
 
 @Component({
   selector: 'app-certifications',
-  imports: [ImageFallbackDirective, FocusTrapDirective],
+  imports: [],
   templateUrl: './certifications.html',
   styleUrl: './certifications.css'
 })
 export class CertificationsComponent {
-  data = portfolio;
+  certifications = portfolio.certifications;
   selectedCert: Certification | null = null;
   enlargedImage: string | null = null;
+  brokenImages = new Set<string>();
 
   openCert(cert: Certification) {
     this.selectedCert = cert;
@@ -38,12 +36,8 @@ export class CertificationsComponent {
     this.enlargedImage = null;
   }
 
-  isPdf(path: string | undefined): boolean {
-    return !!path && path.endsWith('.pdf');
-  }
-
-  openPdf(url: string) {
-    window.open(url, '_blank');
+  onImageError(title: string) {
+    this.brokenImages.add(title);
   }
 
   @HostListener('document:keydown.escape')

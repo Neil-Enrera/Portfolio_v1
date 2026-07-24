@@ -4,13 +4,6 @@ export const portfolio = {
   heroHeadline: 'Transforming Business Processes Into Scalable Digital Systems',
   heroSubtext: 'Full Stack Developer focused on designing and building efficient business solutions through system analysis, architecture planning, and modern web technologies.',
 
-  highlights: [
-    { label: 'Projects Completed', value: 5, suffix: '+' },
-    { label: 'Technologies Used', value: 25, suffix: '+' },
-    { label: 'Certifications Earned', value: 9, suffix: '' },
-    { label: 'Years Experience', value: 3, suffix: '+ Years' }
-  ],
-
   about: {
     objective: 'BS Information Technology student with experience in software development, system analysis, database management, and workflow optimization. Passionate about transforming manual processes into efficient digital solutions.',
     details: 'Experienced in designing business systems, mobile applications, embedded system projects, and database-driven platforms. I approach every project by first understanding the underlying business processes, identifying pain points, and then designing solutions that scale. Passionate about leveraging AI and agentic workflows to accelerate development and build smarter systems.'
@@ -55,8 +48,8 @@ export const portfolio = {
   ],
 
   skills: {
-    frontend: ['Angular', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Bootstrap', 'Node.js', 'Responsive Design'],
-    backend: ['PHP', 'REST APIs', 'Authentication Systems', 'CRUD Operations'],
+    frontend: ['Angular', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Bootstrap', 'Responsive Design'],
+    backend: ['PHP', 'Node.js', 'REST APIs', 'Authentication Systems', 'CRUD Operations'],
     database: ['MySQL', 'SQLite', 'Database Modeling', 'Normalization', 'Query Optimization'],
     tools: ['GitHub', 'VS Code', 'XAMPP', 'Figma', 'Cisco Packet Tracer', 'Android Studio'],
     analysis: ['Use Cases', 'Activity Diagrams', 'Data Flow Diagrams', 'ERD', 'System Architecture', 'Process Mapping', 'Wireframing'],
@@ -70,14 +63,14 @@ export const portfolio = {
       organization: 'JDE Work of Our Hands',
       role: 'Lead Developer',
       category: 'Business Management System',
-      image: '/images/projects/tailoring-system.jpg',
+      image: 'images/projects/tailoring-admin-dashboard.png',
       summary: 'A comprehensive order management platform that digitizes the entire tailoring business workflow.',
       problem: 'The tailoring business relied on manual paper-based records for appointments, orders, payments, and customer communication. This led to lost orders, scheduling conflicts, delayed deliveries, and difficulty tracking business performance.',
       solution: 'Designed and developed a web-based system that centralizes all business operations into a single platform, automating appointment scheduling, order tracking, payment monitoring, and customer communication.',
       processFlow: [
         'Customer inquiry received via system',
         'Appointment scheduled with available tailor',
-        'Order details captured with measurements and preferences',
+        'Order details captured with measurements and preferences',   
         'Production status tracked through each stage',
         'Payment recorded and monitored',
         'Customer notified upon completion'
@@ -92,14 +85,50 @@ export const portfolio = {
         'Administrative dashboard with analytics',
         'Business workflow optimization tools'
       ],
-      lessonsLearned: 'Understanding the tailoring workflow deeply was crucial. The biggest challenge was mapping the non-linear, multi-stage production process into a structured digital format while maintaining flexibility for unexpected changes.'
+      lessonsLearned: 'Understanding the tailoring workflow deeply was crucial. The biggest challenge was mapping the non-linear, multi-stage production process into a structured digital format while maintaining flexibility for unexpected changes.',
+      gallery: [
+        'images/projects/tailoring-admin-dashboard.png',
+        'images/projects/tailoring/admin-1.png',
+        'images/projects/tailoring/admin-2.png',
+        'images/projects/tailoring/admin-3.png',
+        'images/projects/tailoring/admin-4.png',
+        'images/projects/tailoring/admin-5.png',
+        'images/projects/tailoring/admin-6.png',
+        'images/projects/tailoring/admin-7.png',
+        'images/projects/tailoring/admin-8.png',
+        'images/projects/tailoring/admin-9.png',
+        'images/projects/tailoring/admin-10.png',
+        'images/projects/tailoring/admin-11.png',
+        'images/projects/tailoring/admin-12.png',
+        'images/projects/tailoring/user-1.png',
+        'images/projects/tailoring/user-2.png',
+        'images/projects/tailoring/user-3.png',
+        'images/projects/tailoring/user-4.png',
+        'images/projects/tailoring/user-5.png',
+        'images/projects/tailoring/user-6.png',
+        'images/projects/tailoring/user-7.png',
+        'images/projects/tailoring/user-8.png',
+        'images/projects/tailoring/user-9.png',
+        'images/projects/tailoring/user-10.png',
+        'images/projects/tailoring/user-11.png',
+        'images/projects/tailoring/user-12.png',
+        'images/projects/tailoring/user-13.png',
+        'images/projects/tailoring/user-14.png',
+        'images/projects/tailoring/user-15.png',
+        'images/projects/tailoring/user-16.png',
+        'images/projects/tailoring/user-17.png',
+        'images/projects/tailoring/user-18.png',
+        'images/projects/tailoring/user-19.png',
+        'images/projects/tailoring/user-20.png',
+        'images/projects/tailoring/user-21.png'
+      ]
     },
     {
       id: 2,
       title: 'CashTrack: Expense Tracker',
       role: 'Mobile Application Developer',
       category: 'Personal Finance Application',
-      image: '/images/projects/budgetify.jpg',
+      image: 'images/projects/cash-track-dashboard.png',
       summary: 'A personal finance management app that helps users track expenses and manage budgets.',
       problem: 'Individuals lack simple, effective tools to track daily expenses and maintain budget discipline, leading to poor financial management.',
       solution: 'Created a mobile expense tracking application with data visualization, budget management, and financial monitoring features.',
@@ -111,7 +140,18 @@ export const portfolio = {
         'Budget management with alerts',
         'Monthly spending reports'
       ],
-      lessonsLearned: 'Data visualization significantly improves user engagement with financial data. Simple, intuitive inputs reduce friction in daily expense logging.'
+      lessonsLearned: 'Data visualization significantly improves user engagement with financial data. Simple, intuitive inputs reduce friction in daily expense logging.',
+      gallery: [
+        'images/projects/cash-track-dashboard.png',
+        'images/projects/cash-track/1.png',
+        'images/projects/cash-track/2.png',
+        'images/projects/cash-track/3.png',
+        'images/projects/cash-track/4.png',
+        'images/projects/cash-track/5.png',
+        'images/projects/cash-track/6.png',
+        'images/projects/cash-track/7.png',
+        'images/projects/cash-track/8.png'
+      ]
     },
     {
       id: 4,
@@ -119,7 +159,7 @@ export const portfolio = {
       organization: 'Earthquake Detection for Establishments',
       role: 'Embedded Systems Developer',
       category: 'Embedded System',
-      image: '/images/projects/seismic-monitor.jpg',
+      image: 'images/projects/seismic-monitor-system.png',
       summary: 'An affordable earthquake detection system combining hardware sensors with software monitoring.',
       problem: 'Small establishments lack access to affordable earthquake detection and monitoring systems to provide early warnings.',
       solution: 'Built a DIY seismic monitoring system using cost-effective sensors integrated with custom software for real-time detection and alerts.',
@@ -131,7 +171,12 @@ export const portfolio = {
         'Alert notification system',
         'Hardware and software development'
       ],
-      lessonsLearned: 'Hardware-software integration requires careful consideration of signal processing, noise filtering, and real-time response requirements.'
+      lessonsLearned: 'Hardware-software integration requires careful consideration of signal processing, noise filtering, and real-time response requirements.',
+      gallery: [
+        'images/projects/seismic-monitor-system.png',
+        'images/projects/seismic-monitor/1.jpg',
+        'images/projects/seismic-monitor/2.jpg'
+      ]
     },
     {
       id: 5,
@@ -139,7 +184,7 @@ export const portfolio = {
       organization: 'Adoption and Lost & Found System for Stray Animals',
       role: 'Developer',
       category: 'Database Management System',
-      image: '/images/projects/here-pawr-you.jpg',
+      image: '',
       summary: 'A community platform connecting stray animals with adopters and reuniting lost pets with owners.',
       problem: 'Stray animals lack a centralized platform for adoption facilitation and lost-and-found reporting, making it difficult for communities to coordinate care.',
       solution: 'Developed a database-driven web platform with comprehensive user management, animal profiles, and matching algorithms.',
@@ -152,7 +197,8 @@ export const portfolio = {
         'User management and authentication',
         'Community support platform'
       ],
-      lessonsLearned: 'Database design is critical for systems with complex relationships. Well-normalized schemas enable flexible querying and reporting capabilities.'
+      lessonsLearned: 'Database design is critical for systems with complex relationships. Well-normalized schemas enable flexible querying and reporting capabilities.',
+      gallery: []
     }
   ],
 
@@ -188,57 +234,54 @@ export const portfolio = {
     {
       title: 'CCNA (Cisco Certified Network Associate)',
       issuer: 'Cisco Networking Academy',
-      image: '/images/certifications/Enrera_Neil_Networking_Basics(CiscoNetworkingAcademy)_page-0001.jpg',
-      pdf: '/images/certifications/Enrera_Neil_Networking_Basics(CiscoNetworkingAcademy).pdf',
+      image: 'images/certifications/Enrera_Neil_Networking_Basics(CiscoNetworkingAcademy)_page-0001.jpg',
       description: 'Networking fundamentals, routing, switching, and network security.'
     },
     {
       title: 'Alibaba Cloud Big Data Associate',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-big-data.png',
+      image: 'images/certifications/alibaba-big-data.png',
       description: 'Big data processing, storage, and analytics on cloud infrastructure.'
     },
     {
       title: 'ECS Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-ecs.png',
+      image: 'images/certifications/alibaba-ecs.png',
       description: 'Elastic Compute Service configuration and management.'
     },
     {
       title: 'SLB Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-slb.png',
+      image: 'images/certifications/alibaba-slb.png',
       description: 'Server Load Balancer implementation and optimization.'
     },
     {
       title: 'Auto Scaling Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-auto-scaling.png',
+      image: 'images/certifications/alibaba-auto-scaling.png',
       description: 'Automated scaling strategies for cloud resources.'
     },
     {
       title: 'OSS Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-oss.png',
+      image: 'images/certifications/alibaba-oss.png',
       description: 'Object Storage Service architecture and best practices.'
     },
     {
       title: 'ApsaraDB RDS Fundamentals',
       issuer: 'Alibaba Cloud',
-      image: '/images/certifications/alibaba-rds.png',
+      image: 'images/certifications/alibaba-rds.png',
       description: 'Relational Database Service management on Alibaba Cloud.'
     },
     {
       title: 'IoT Foundations: Operating Systems Fundamentals',
       issuer: 'IoT Academy',
-      image: '/images/certifications/CertificateOfCompletion_IoT Foundations Operating Systems Fundamentals_pages-to-jpg-0001.jpg',
-      pdf: '/images/certifications/CertificateOfCompletion_IoT Foundations Operating Systems Fundamentals.pdf',
+      image: 'images/certifications/CertificateOfCompletion_IoT Foundations Operating Systems Fundamentals_pages-to-jpg-0001.jpg',
       description: 'Operating system concepts for IoT device development.'
     },
     {
       title: 'Vibe Code and Agentic Coding',
       issuer: 'AI Seminar',
-      image: '/images/certifications/Vibe%20Code%20and%20Agentic%20Coding.png',
       description: 'Modern AI-assisted development techniques including agentic workflows, prompt engineering, and AI-powered coding practices.'
     }
   ],
@@ -256,13 +299,13 @@ export const portfolio = {
 
   resume: {
     file: '/resume/Neil_Enrera_CV.pdf',
-    label: 'Download Resume'
+    label: 'View Resume'
   },
 
   contact: {
     email: 'neilandreienrera@gmail.com',
-    github: 'https://github.com/NeilEnrera',
-    linkedin: 'https://linkedin.com/in/andreicalo',
+    github: 'https://github.com/Neil-Enrera',
+    linkedin: 'https://www.linkedin.com/in/neil-andrei-enrera-41339b288/',
     facebook: 'https://www.facebook.com/neilxbzjsj/',
     formAction: ''
   }
