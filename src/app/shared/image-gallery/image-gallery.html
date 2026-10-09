@@ -83,22 +83,43 @@
         }
       </div>
 
-      <!-- Dot navigation -->
+      <!-- Navigation strip -->
       @if (images().length > 1) {
-        <div class="flex items-center justify-center gap-1.5 py-3 px-4">
-          @for (img of images(); track $index) {
-            <button
-              class="w-2 h-2 rounded-full border transition-all duration-200 cursor-pointer"
-              [class.bg-white/60]="$index === currentIndex()"
-              [class.border-white/60]="$index === currentIndex()"
-              [class.bg-white/20]="$index !== currentIndex()"
-              [class.border-white/20]="$index !== currentIndex()"
-              [class.w-3]="$index === currentIndex()"
-              (click)="goToImage($index)"
-              [attr.aria-label]="'Go to image ' + ($index + 1)"
-            ></button>
-          }
-        </div>
+        @if (images().length <= 15) {
+          <div class="flex items-center justify-center gap-1.5 py-3 px-4">
+            @for (img of images(); track $index) {
+              <button
+                class="w-2 h-2 rounded-full border transition-all duration-200 cursor-pointer"
+                [class.bg-white/60]="$index === currentIndex()"
+                [class.border-white/60]="$index === currentIndex()"
+                [class.bg-white/20]="$index !== currentIndex()"
+                [class.border-white/20]="$index !== currentIndex()"
+                [class.w-3]="$index === currentIndex()"
+                (click)="goToImage($index)"
+                [attr.aria-label]="'Go to image ' + ($index + 1)"
+              ></button>
+            }
+          </div>
+        } @else {
+          <div class="w-full max-w-4xl mx-auto px-4 py-2">
+            <div class="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-thin">
+              @for (img of images(); track $index) {
+                <button
+                  (click)="goToImage($index)"
+                  class="flex-shrink-0 w-12 h-8 md:w-14 md:h-9 border transition-all duration-150 overflow-hidden bg-black/40 cursor-pointer"
+                  [class.border-white]="$index === currentIndex()"
+                  [class.opacity-100]="$index === currentIndex()"
+                  [class.scale-105]="$index === currentIndex()"
+                  [class.border-white/20]="$index !== currentIndex()"
+                  [class.opacity-40]="$index !== currentIndex()"
+                  [attr.aria-label]="'Go to image ' + ($index + 1)"
+                >
+                  <img [src]="img" class="w-full h-full object-cover" [alt]="'Thumb ' + ($index + 1)" loading="lazy" />
+                </button>
+              }
+            </div>
+          </div>
+        }
       }
     </div>
   </div>

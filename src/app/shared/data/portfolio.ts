@@ -1,91 +1,218 @@
 export const portfolio = {
-  name: 'Neil Andrei Enrera',
-  tagline: 'Full Stack Developer',
-  heroHeadline: 'Transforming Business Processes Into Scalable Digital Systems',
-  heroSubtext: 'Full Stack Developer focused on designing and building efficient business solutions through system analysis, architecture planning, and modern web technologies.',
+  name: 'Neil Andrei M. Enrera',
+  tagline: 'BS Information Technology | Web, Mobile & IoT Developer',
+  location: 'City of San Jose Del Monte, Bulacan',
+  phone: '09476141605',
+  email: 'andreienrera@gmail.com',
+  heroHeadline: 'Building Practical Digital Systems, Web & Mobile Applications, and IoT Solutions',
+  heroSubtext: 'BS Information Technology student at National University – Fairview (Dean\'s Lister 2024) specializing in Mobile and Internet Technologies. Experienced in client-commissioned systems, small business order support, database modeling, and full-cycle development with Angular, Laravel, PHP, and IoT integration.',
 
   about: {
-    objective: 'BS Information Technology student with experience in software development, system analysis, database management, and workflow optimization. Passionate about transforming manual processes into efficient digital solutions.',
-    details: 'Experienced in designing business systems, mobile applications, embedded system projects, and database-driven platforms. I approach every project by first understanding the underlying business processes, identifying pain points, and then designing solutions that scale. Passionate about leveraging AI and agentic workflows to accelerate development and build smarter systems.'
+    objective: 'BS Information Technology student specializing in Mobile and Internet Technologies with hands-on experience developing web and mobile applications, information management systems, and IoT-integrated solutions.',
+    details: 'I bridge practical business workflows with modern technology. My background combines real-world small business customer support and order coordination with full-cycle software engineering—from commissioned client applications (CashTrack) and capstone enterprise solutions (JDE Tailoring & Barangay San Manuel IoT Kiosk System) to embedded sensor prototypes. Seeking an IT or Software Engineering internship where I can deliver immediate value through technical problem-solving and dependable collaboration.'
+  },
+
+  education: {
+    institution: 'National University – Fairview',
+    degree: 'BS Information Technology with Specialization in Mobile and Internet Technologies',
+    status: 'Present',
+    honor: "Dean's Lister 2024",
+    coursework: ['Data Structures & Algorithms', 'Software Engineering', 'Operating Systems', 'Database Systems', 'Web & Mobile Development', 'Cloud Computing'],
+    previous: [
+      { school: 'Our Lady of Fatima University', track: 'STEM (Science, Technology, Engineering, and Mathematics)', period: '2019 – 2022' },
+      { school: 'Our Lord of Mercy School of Caloocan Inc.', track: 'Junior High School', period: '2017 – 2020' }
+    ]
   },
 
   expertise: [
     {
       title: 'Business Process Analysis',
-      description: 'Identifying inefficiencies and designing optimized workflows that align with business goals and operational requirements.',
+      description: 'Dissecting manual operational workflows, identifying bottlenecks, and designing optimized digital processes that scale with business goals.',
       icon: 'chart'
     },
     {
-      title: 'System Architecture',
-      description: 'Planning scalable solutions before development begins, ensuring maintainable and extensible system designs.',
-      icon: 'layers'
-    },
-    {
-      title: 'Full Stack Development',
-      description: 'Building complete applications from frontend to backend with modern frameworks, APIs, and database integration.',
+      title: 'Full Stack & Web Development',
+      description: 'Building end-to-end applications from responsive frontend interfaces (Angular, React) to robust backend APIs (Laravel, PHP, Node.js).',
       icon: 'code'
     },
     {
-      title: 'Database Design',
-      description: 'Designing efficient and maintainable data structures with proper normalization, indexing, and query optimization.',
+      title: 'Database Architecture & Modeling',
+      description: 'Designing normalized relational schemas (MySQL 3NF, SQLite), establishing foreign key integrity, and optimizing queries.',
       icon: 'database'
     },
     {
-      title: 'UI/UX Design',
-      description: 'Creating intuitive and user-friendly interfaces that prioritize user experience and accessibility.',
-      icon: 'palette'
+      title: 'Mobile Application Development',
+      description: 'Developing offline-first Android applications in Java/XML with structured SQLite local storage and clean user flows.',
+      icon: 'layers'
     },
     {
-      title: 'Technical Documentation',
-      description: 'Producing clear diagrams, workflows, and system specifications that bridge business requirements and technical implementation.',
+      title: 'IoT & Hardware-Software Systems',
+      description: 'Integrating microcontrollers, RFID authentication, QR verification, and vibration sensors with web platforms and kiosks.',
+      icon: 'cpu'
+    },
+    {
+      title: 'Client Support & Order Operations',
+      description: 'Managing customer order queues, tracking delivery status, and providing empathetic, professional communication across digital channels.',
       icon: 'fileText'
     },
     {
-      title: 'AI & Agentic Development',
-      description: 'Leveraging AI tools and agentic coding workflows to accelerate development, automate repetitive tasks, and build intelligent features.',
+      title: 'AI & Engineering Workflows',
+      description: 'Leveraging AI-assisted development tools, agentic coding practices, and prompt engineering to accelerate prototyping and problem solving.',
       icon: 'cpu'
     }
   ],
 
   skills: {
-    frontend: ['Angular', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Bootstrap', 'Responsive Design'],
-    backend: ['PHP', 'Node.js', 'REST APIs', 'Authentication Systems', 'CRUD Operations'],
-    database: ['MySQL', 'SQLite', 'Database Modeling', 'Normalization', 'Query Optimization'],
-    tools: ['GitHub', 'VS Code', 'XAMPP', 'Figma', 'Cisco Packet Tracer', 'Android Studio'],
-    analysis: ['Use Cases', 'Activity Diagrams', 'Data Flow Diagrams', 'ERD', 'System Architecture', 'Process Mapping', 'Wireframing'],
-    ai: ['Prompt Engineering', 'Agentic Workflows', 'AI-Assisted Development', 'Vibe Coding', 'AI Integration']
+    languages: ['JavaScript', 'TypeScript', 'PHP', 'SQL', 'Java', 'C++'],
+    frameworks: ['Angular', 'React', 'Laravel', 'Node.js', 'Express.js'],
+    database: ['MySQL', 'SQLite', 'Database Modeling', 'Schema Normalization (3NF)', 'Query Optimization'],
+    web: ['HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'RESTful APIs', 'Responsive Design'],
+    toolsAndCloud: ['Git', 'GitHub', 'Docker', 'AWS', 'Alibaba Cloud', 'Linux CLI', 'Android Studio', 'Figma', 'VS Code', 'Postman'],
+    hardwareAndIoT: ['IoT Systems', 'RFID Authentication', 'Sensors & Microcontrollers', 'Embedded Systems'],
+    operations: ['Customer Communication', 'Order Management & Delivery Tracking', 'Requirements Discovery'],
+    ai: ['AI-Assisted Development', 'Agentic Coding Workflows', 'Prompt Engineering', 'LLM Integration']
   },
 
   projects: [
     {
       id: 1,
+      title: 'Information Management System with IoT-Assisted Document Request Kiosk',
+      organization: 'Barangay San Manuel',
+      role: 'Lead Developer',
+      category: 'E-Governance & IoT Management',
+      projectType: 'Capstone Project / Active Development',
+      image: 'images/projects/san-manuel/san-manuel-dashboard.png',
+      summary: 'A comprehensive web-based Barangay Information Management System integrated with an IoT-powered self-service kiosk for automated resident document requests.',
+      githubUrl: 'https://github.com/Neil-Enrera',
+      liveUrl: '',
+      metrics: [
+        'RFID-Based Resident Authentication',
+        'QR Code Document Verification',
+        'Automated Certificate & Clearance Processing',
+        'Admin Dashboard with Demographic Analytics'
+      ],
+      clientEngagement: {
+        discovery: 'Collaborated directly with Barangay San Manuel officials to identify long queue times and manual paperwork bottlenecks during clearance and document issuance.',
+        revision: 'Designed an IoT self-service kiosk workflow supporting RFID card tap and verification to streamline resident verification before administrative approval.',
+        outcome: 'Architected with Angular, MySQL, and RESTful APIs with role-based administrative dashboards for barangay governance.'
+      },
+      problem: 'Barangay San Manuel relied on manual paper-based filing cabinets and physical logbooks for resident records, clearance requests, and blotter case tracking—causing lengthy queues for residents and manual reporting overhead.',
+      solution: 'Developed a modern web platform integrated with an IoT kiosk, enabling RFID resident authentication, instant online document requests (Clearance, Indigency, Residency), and administrative reporting.',
+      processFlow: [
+        'Resident taps RFID card at kiosk or submits online request',
+        'Service / document request processed via RESTful API',
+        'Barangay official verifies request in admin dashboard',
+        'Official certificate generated and verified',
+        'Payment/release logged and recorded in MySQL database',
+        'Blotter incidents and community records maintained'
+      ],
+      architecture: 'Angular frontend interface communicating via RESTful APIs with normalized MySQL database (3NF) and hardware RFID scanner integration.',
+      technologies: ['Angular', 'TypeScript', 'MySQL', 'RESTful APIs', 'RFID', 'IoT'],
+      features: [
+        'IoT self-service kiosk with RFID tap authentication',
+        'Automated document issuance (Barangay Clearance, Certificate of Indigency, Residency)',
+        'Anti-tamper QR code verification on generated certificates',
+        'Blotter incident tracking, hearing schedules, and dispute status monitoring',
+        'Role-based access control for Barangay Captain, Secretary, and Staff',
+        'Demographic analytics and monthly request reporting dashboards'
+      ],
+      lessonsLearned: 'Integrating hardware RFID scanners with a modern web frontend required careful asynchronous state management and secure token verification across the API layer.',
+      gallery: [
+        'images/projects/san-manuel/san-manuel-dashboard.png',
+        'images/projects/san-manuel/kiosk-1.png',
+        'images/projects/san-manuel/kiosk-2.png',
+        'images/projects/san-manuel/kiosk-3.png',
+        'images/projects/san-manuel/kiosk-4.png',
+        'images/projects/san-manuel/kiosk-5.png',
+        'images/projects/san-manuel/kiosk-6.png',
+        'images/projects/san-manuel/kiosk-7.png',
+        'images/projects/san-manuel/kiosk-8.png',
+        'images/projects/san-manuel/kiosk-9.png',
+        'images/projects/san-manuel/kiosk-10.png',
+        'images/projects/san-manuel/kiosk-11.png',
+        'images/projects/san-manuel/kiosk-12.png',
+        'images/projects/san-manuel/kiosk-13.png',
+        'images/projects/san-manuel/kiosk-14.png',
+        'images/projects/san-manuel/kiosk-15.png',
+        'images/projects/san-manuel/kiosk-16.png',
+        'images/projects/san-manuel/kiosk-17.png',
+        'images/projects/san-manuel/admin-1.png',
+        'images/projects/san-manuel/admin-2.png',
+        'images/projects/san-manuel/admin-3.png',
+        'images/projects/san-manuel/admin-4.png',
+        'images/projects/san-manuel/admin-5.png',
+        'images/projects/san-manuel/admin-6.png',
+        'images/projects/san-manuel/admin-7.png',
+        'images/projects/san-manuel/admin-8.png',
+        'images/projects/san-manuel/admin-9.png',
+        'images/projects/san-manuel/admin-10.png',
+        'images/projects/san-manuel/admin-11.png',
+        'images/projects/san-manuel/admin-12.png',
+        'images/projects/san-manuel/admin-13.png',
+        'images/projects/san-manuel/admin-14.png',
+        'images/projects/san-manuel/admin-15.png',
+        'images/projects/san-manuel/admin-16.png',
+        'images/projects/san-manuel/admin-17.png',
+        'images/projects/san-manuel/admin-18.png',
+        'images/projects/san-manuel/admin-19.png',
+        'images/projects/san-manuel/admin-20.png',
+        'images/projects/san-manuel/admin-21.png',
+        'images/projects/san-manuel/admin-22.png',
+        'images/projects/san-manuel/admin-23.png',
+        'images/projects/san-manuel/admin-24.png',
+        'images/projects/san-manuel/online-1.png',
+        'images/projects/san-manuel/online-2.png',
+        'images/projects/san-manuel/online-3.png',
+        'images/projects/san-manuel/online-4.png',
+        'images/projects/san-manuel/online-5.png',
+        'images/projects/san-manuel/online-6.png',
+        'images/projects/san-manuel/online-7.png',
+        'images/projects/san-manuel/online-8.png',
+        'images/projects/san-manuel/online-9.png'
+      ]
+    },
+    {
+      id: 2,
       title: 'Web-Based Tailoring Order Management System',
       organization: 'JDE Work of Our Hands',
       role: 'Lead Developer',
-      category: 'Business Management System',
+      category: 'Enterprise Management System',
+      projectType: 'Capstone Project',
       image: 'images/projects/tailoring-admin-dashboard.png',
-      summary: 'A comprehensive order management platform that digitizes the entire tailoring business workflow.',
-      problem: 'The tailoring business relied on manual paper-based records for appointments, orders, payments, and customer communication. This led to lost orders, scheduling conflicts, delayed deliveries, and difficulty tracking business performance.',
-      solution: 'Designed and developed a web-based system that centralizes all business operations into a single platform, automating appointment scheduling, order tracking, payment monitoring, and customer communication.',
+      summary: 'A complete enterprise order management and workflow automation platform that digitizes garment tailoring operations.',
+      githubUrl: 'https://github.com/Neil-Enrera',
+      liveUrl: '',
+      metrics: [
+        '100% Digitized Order Lifecycle',
+        '12+ Normalized DB Entities (3NF)',
+        '6-Stage Production State Tracking'
+      ],
+      clientEngagement: {
+        discovery: 'Conducted on-site workflow analysis with the business owner and tailors to map physical paper order receipts, measurement cards, and production queues.',
+        revision: 'When the client requested that future measurement adjustments must not alter past order records, engineered an immutable measurement snapshot schema.',
+        outcome: 'Digitized the entire tailoring workflow and delivered hands-on system walkthroughs ensuring non-technical staff could operate it seamlessly.'
+      },
+      problem: 'The business struggled with manual paper records, leading to lost customer measurements, scheduling conflicts, delayed order fulfillment, and zero visibility into daily production bottlenecks.',
+      solution: 'Engineered a centralized web platform automating the entire lifecycle—from appointment booking and customer measurement profiling to multi-stage production tracking and automated invoicing.',
       processFlow: [
-        'Customer inquiry received via system',
-        'Appointment scheduled with available tailor',
-        'Order details captured with measurements and preferences',   
-        'Production status tracked through each stage',
-        'Payment recorded and monitored',
-        'Customer notified upon completion'
+        'Customer inquiry & measurement capture',
+        'Appointment scheduling with conflict detection',
+        'Work order creation with garment specifications',
+        '6-stage production tracking (Cutting → Stitching → QA → Ready)',
+        'Payment recording with receipt generation',
+        'Automated customer notification on order completion'
       ],
-      architecture: 'LAMP stack (Linux, Apache, MySQL, PHP) with responsive Bootstrap frontend. MVC architecture pattern with modular component design.',
-      technologies: ['PHP', 'MySQL', 'Bootstrap', 'HTML/CSS', 'JavaScript', 'Apache'],
+      architecture: 'MVC architecture pattern using PHP, MySQL (3NF relational schema), and responsive Bootstrap/CSS frontend with role-based authentication (Admin vs. Tailor vs. Client).',
+      technologies: ['PHP', 'MySQL', 'Bootstrap', 'JavaScript', 'HTML5/CSS3', 'Apache'],
       features: [
-        'Appointment scheduling with calendar integration',
-        'Order tracking with production status updates',
-        'Payment monitoring with receipt generation',
-        'Customer communication portal',
-        'Administrative dashboard with analytics',
-        'Business workflow optimization tools'
+        'Real-time appointment scheduling with calendar view',
+        'Granular order tracking with 6-stage status transitions',
+        'Measurement snapshot versioning to preserve past order history',
+        'Payment recording with PDF invoice generation',
+        'Administrative analytics dashboard for sales & order volume',
+        'Role-based access control for administrative staff and tailors'
       ],
-      lessonsLearned: 'Understanding the tailoring workflow deeply was crucial. The biggest challenge was mapping the non-linear, multi-stage production process into a structured digital format while maintaining flexibility for unexpected changes.',
+      lessonsLearned: 'Designing the measurement snapshot system was critical: updating a customer’s current measurements must not corrupt previous historical completed orders. Implementing immutable order measurement snapshots solved this architectural challenge.',
       gallery: [
         'images/projects/tailoring-admin-dashboard.png',
         'images/projects/tailoring/admin-1.png',
@@ -124,54 +251,73 @@ export const portfolio = {
       ]
     },
     {
-      id: 2,
-      title: 'CashTrack: Expense Tracker',
+      id: 3,
+      title: 'CashTrack: Expenses Tracker',
+      organization: 'Personal Finance Project',
       role: 'Mobile Application Developer',
       category: 'Personal Finance Application',
+      projectType: 'Commissioned Project',
       image: 'images/projects/cash-track-dashboard.png',
-      summary: 'A personal finance management app that helps users track expenses and manage budgets.',
-      problem: 'Individuals lack simple, effective tools to track daily expenses and maintain budget discipline, leading to poor financial management.',
-      solution: 'Created a mobile expense tracking application with data visualization, budget management, and financial monitoring features.',
-      architecture: 'Clean architecture with local-first data storage. Offline-capable with periodic sync.',
-      technologies: ['Android Studio', 'Java', 'SQLite', 'MPAndroidChart'],
-      features: [
-        'Expense tracking with categories',
-        'Financial data visualization and charts',
-        'Budget management with alerts',
-        'Monthly spending reports'
+      summary: 'A mobile personal finance application developed for a client to efficiently track daily expenses, manage income, and monitor budget categories.',
+      githubUrl: 'https://github.com/Neil-Enrera',
+      liveUrl: '',
+      metrics: [
+        'Commissioned for Private Client',
+        'Offline-First Local SQLite Database',
+        'Category Budgeting & Visual MPAndroidChart'
       ],
-      lessonsLearned: 'Data visualization significantly improves user engagement with financial data. Simple, intuitive inputs reduce friction in daily expense logging.',
+      clientEngagement: {
+        discovery: 'Interviewed the client to identify friction points in daily expense tracking and budget compliance.',
+        revision: 'Refined the user interface to support rapid 2-tap transaction logging and instant visual budget progress bars.',
+        outcome: 'Delivered an offline-capable Android APK tailored to the client’s custom spending categories and budgeting targets.'
+      },
+      problem: 'The client needed a simple, lightweight mobile tool to track personal income, expenses, and savings without requiring constant internet access or dealing with complex multi-screen navigation.',
+      solution: 'Built a responsive Android application with structured SQLite local storage, interactive visual charts, expense categorization, and budget threshold alerts.',
+      architecture: 'Clean architecture with local SQLite database integration, DAO pattern for structured data access, and asynchronous UI updates.',
+      technologies: ['Android Studio', 'Java', 'SQLite', 'MPAndroidChart', 'XML Layouts'],
+      features: [
+        'Fast one-tap expense logging with custom categorization',
+        'Interactive spending charts and monthly trend breakdowns',
+        'Budget limit alerts with real-time percentage indicators',
+        'Complete offline functionality with secure local storage'
+      ],
+      lessonsLearned: 'Prioritizing low input friction was vital for user retention. Simplifying the transaction entry flow to two taps noticeably improved logging frequency during testing.',
       gallery: [
         'images/projects/cash-track-dashboard.png',
         'images/projects/cash-track/1.png',
         'images/projects/cash-track/2.png',
         'images/projects/cash-track/3.png',
-        'images/projects/cash-track/4.png',
         'images/projects/cash-track/5.png',
-        'images/projects/cash-track/6.png',
-        'images/projects/cash-track/7.png',
-        'images/projects/cash-track/8.png'
+        'images/projects/cash-track/7.png'
       ]
     },
     {
       id: 4,
-      title: 'DIY Seismic Monitor',
-      organization: 'Earthquake Detection for Establishments',
-      role: 'Embedded Systems Developer',
-      category: 'Embedded System',
+      title: 'DIY Seismic Monitor: Earthquake Detector for Establishments',
+      organization: 'Establishment Safety Initiative',
+      role: 'Embedded Systems Project Manager',
+      category: 'IoT & Embedded Systems',
+      projectType: 'Academic Project',
       image: 'images/projects/seismic-monitor-system.png',
-      summary: 'An affordable earthquake detection system combining hardware sensors with software monitoring.',
-      problem: 'Small establishments lack access to affordable earthquake detection and monitoring systems to provide early warnings.',
-      solution: 'Built a DIY seismic monitoring system using cost-effective sensors integrated with custom software for real-time detection and alerts.',
-      architecture: 'Sensor data acquisition layer → Microcontroller processing → Alert/notification system. Hardware-software integrated design.',
-      technologies: ['Arduino', 'C++', 'Sensors', 'Embedded Systems'],
-      features: [      
-        'Sensor integration for vibration detection',
-        'Real-time monitoring and analysis',
-        'Alert notification system',
-        'Hardware and software development'
+      summary: 'An affordable earthquake detection and early-warning alert system combining hardware vibration sensors with microcontroller real-time monitoring software.',
+      githubUrl: 'https://github.com/Neil-Enrera',
+      liveUrl: '',
+      metrics: [
+        'Sub-second Real-time Vibration Detection',
+        'Low-cost Hardware Sensor Integration',
+        'Automated Visual & Audio Warning Trigger'
       ],
-      lessonsLearned: 'Hardware-software integration requires careful consideration of signal processing, noise filtering, and real-time response requirements.',
+      problem: 'Small commercial establishments and educational facilities often lack access to expensive commercial seismic warning systems for immediate localized alerts.',
+      solution: 'Constructed an integrated hardware-software monitoring prototype using microcontroller sensor acquisition, digital filtering, and real-time visual/auditory alarms.',
+      architecture: 'Sensor signal acquisition layer (Piezo/Accelerometer) → Microcontroller ADC processing with threshold filtering → Real-time alert dispatch system.',
+      technologies: ['C++', 'Arduino', 'Vibration Sensors', 'Embedded Systems', 'Hardware Interfacing'],
+      features: [
+        'Continuous vibration signal sampling and noise threshold filtering',
+        'Real-time threshold breach detection with visual status LED indicators',
+        'Instantaneous audible buzzer warning for occupant evacuation',
+        'Fail-safe hardware-software loop designed for continuous uptime'
+      ],
+      lessonsLearned: 'Managing environmental noise (accidental floor vibrations vs. actual ground tremors) required implementing a sliding-window averaging filter to prevent false positive alarms.',
       gallery: [
         'images/projects/seismic-monitor-system.png',
         'images/projects/seismic-monitor/1.jpg',
@@ -180,133 +326,156 @@ export const portfolio = {
     },
     {
       id: 5,
-      title: 'Here Pawr You',
-      organization: 'Adoption and Lost & Found System for Stray Animals',
+      title: 'Here Pawr You: Pet Adoption & Rescue Platform',
+      organization: 'Community Animal Welfare',
       role: 'Developer',
-      category: 'Database Management System',
+      category: 'Database Management Platform',
+      projectType: 'Academic Project',
       image: '',
-      summary: 'A community platform connecting stray animals with adopters and reuniting lost pets with owners.',
-      problem: 'Stray animals lack a centralized platform for adoption facilitation and lost-and-found reporting, making it difficult for communities to coordinate care.',
-      solution: 'Developed a database-driven web platform with comprehensive user management, animal profiles, and matching algorithms.',
-      architecture: 'Relational database design with normalized schema. Web-based interface with role-based access control.',
-      technologies: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript', 'Bootstrap'],
-      features: [
-        'Animal adoption management system',
-        'Lost & found tracking and matching',
-        'Comprehensive database design',
-        'User management and authentication',
-        'Community support platform'
+      summary: 'A community-driven web platform connecting animal shelters, pet adopters, and pet owners for adoption facilitation and lost-and-found tracking.',
+      githubUrl: 'https://github.com/Neil-Enrera',
+      liveUrl: '',
+      metrics: [
+        'Role-Based Shelter & Adopter Portals',
+        'Multi-criteria Animal Matching Schema',
+        'Community Lost & Found Incident Mapping'
       ],
-      lessonsLearned: 'Database design is critical for systems with complex relationships. Well-normalized schemas enable flexible querying and reporting capabilities.',
+      problem: 'Animal rescue initiatives lack centralized systems for cataloging rescued animals, tracking adoption statuses, and handling lost pet reports within local communities.',
+      solution: 'Architected a normalized database-driven web platform with role-based authentication, pet profiling, adoption application workflows, and incident reporting.',
+      architecture: 'Relational database architecture with normalized schemas (3NF), session-based RBAC, and modular PHP backend services.',
+      technologies: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'HTML5/CSS3'],
+      features: [
+        'Pet adoption directory with multi-attribute filtering (Age, Breed, Size, Medical Status)',
+        'Adopter application submission and shelter review workflow',
+        'Lost and found reporting with location details and photo uploads',
+        'Role-based access control for shelter admins, adopters, and community users'
+      ],
+      lessonsLearned: 'Designing a flexible relationship schema between Pet Profiles, Shelter Organizations, and Multi-stage Adoption Applications reinforced the importance of foreign key constraints and transactional integrity.',
       gallery: []
     }
   ],
 
   systemDesigns: [
     {
-      title: 'Entity Relationship Diagrams',
-      description: 'Comprehensive ERDs showing database structure, relationships, and normalization for business systems.',
-      items: ['Logical data models', 'Physical schema designs', 'Relationship mapping', 'Normalization documentation']
+      title: 'Entity Relationship Diagrams (ERD)',
+      description: 'Detailed relational schemas (3NF) mapping primary keys, foreign keys, cardinality constraints, and relationship integrity.',
+      items: ['Conceptual & logical data models', 'Physical schema definitions', 'Foreign key constraints & cascade rules', '3NF normalization documentation']
     },
     {
       title: 'System Architecture Diagrams',
-      description: 'High-level architecture views showing component interactions, data flow, and system boundaries.',
-      items: ['Layered architecture designs', 'Component interaction diagrams', 'Deployment topology', 'API structure maps']
+      description: 'High-level component topology illustrating client-server interactions, data flow pipelines, and security perimeters.',
+      items: ['Layered MVC & Clean Architecture', 'Client-to-API communication flows', 'Authentication & authorization layers', 'Component decoupling strategies']
     },
     {
-      title: 'Workflow & Process Maps',
-      description: 'Detailed process flows showing business operations, decision points, and system interactions.',
-      items: ['Business process flows', 'User journey maps', 'System interaction diagrams', 'Decision trees']
+      title: 'Workflow & Process Mapping',
+      description: 'End-to-end operational mapping of business processes to identify inefficiencies and define automated state transitions.',
+      items: ['Business process flows (BPMN)', 'State machine transition logic', 'User journey mapping', 'System decision trees']
     },
     {
-      title: 'User Flow & Wireframes',
-      description: 'User-centered design artifacts showing navigation patterns, screen layouts, and interaction design.',
-      items: ['User flow diagrams', 'Wireframe prototypes', 'Screen mockups', 'Navigation maps']
+      title: 'User Flow & Wireframing',
+      description: 'Interaction blueprints designed in Figma to validate screen hierarchies, navigation patterns, and edge case flows before code.',
+      items: ['Low and high-fidelity wireframes', 'Navigation structure maps', 'Interaction state specifications', 'Responsive layout blueprints']
     },
     {
-      title: 'Use Case & Requirements',
-      description: 'Structured requirements documentation capturing functional needs, system boundaries, and actor interactions.',
-      items: ['Use case specifications', 'Activity diagrams', 'Requirement traceability', 'Stakeholder analysis']
+      title: 'Use Case & Requirements Specs',
+      description: 'Rigorous functional requirements and actor interaction diagrams bridging stakeholder needs with technical implementation.',
+      items: ['Formal use case specifications', 'Activity & sequence diagrams', 'Requirement traceability matrices', 'Edge case & error handling specs']
     }
   ],
 
   certifications: [
     {
-      title: 'CCNA (Cisco Certified Network Associate)',
+      title: 'CCNA: Networking Basics',
       issuer: 'Cisco Networking Academy',
       image: 'images/certifications/Enrera_Neil_Networking_Basics(CiscoNetworkingAcademy)_page-0001.jpg',
-      description: 'Networking fundamentals, routing, switching, and network security.'
+      description: 'Core networking architecture, IP addressing, subnetting, TCP/IP & OSI models, routing protocols, and network security fundamentals.'
     },
     {
-      title: 'Alibaba Cloud Big Data Associate',
+      title: 'Alibaba Cloud Big Data Associate (2025)',
       issuer: 'Alibaba Cloud',
       image: 'images/certifications/alibaba-big-data.png',
-      description: 'Big data processing, storage, and analytics on cloud infrastructure.'
+      description: 'Big data processing, storage, data pipelines, and analytics on distributed cloud infrastructure.'
     },
     {
-      title: 'ECS Fundamentals',
+      title: 'ECS (Elastic Compute Service) Fundamentals (2025)',
       issuer: 'Alibaba Cloud',
       image: 'images/certifications/alibaba-ecs.png',
-      description: 'Elastic Compute Service configuration and management.'
+      description: 'Virtual server provisioning, instance lifecycle management, security group rules, and compute scaling.'
     },
     {
-      title: 'SLB Fundamentals',
+      title: 'SLB (Server Load Balancer) Fundamentals (2025)',
       issuer: 'Alibaba Cloud',
       image: 'images/certifications/alibaba-slb.png',
-      description: 'Server Load Balancer implementation and optimization.'
+      description: 'High-availability traffic distribution, listener configurations, health checks, and fault tolerance.'
     },
     {
-      title: 'Auto Scaling Fundamentals',
+      title: 'Auto Scaling Fundamentals (2025)',
       issuer: 'Alibaba Cloud',
       image: 'images/certifications/alibaba-auto-scaling.png',
-      description: 'Automated scaling strategies for cloud resources.'
+      description: 'Dynamic elasticity, automated scaling groups, scheduled policies, and infrastructure cost optimization.'
     },
     {
-      title: 'OSS Fundamentals',
+      title: 'OSS (Object Storage Service) Fundamentals (2025)',
       issuer: 'Alibaba Cloud',
       image: 'images/certifications/alibaba-oss.png',
-      description: 'Object Storage Service architecture and best practices.'
+      description: 'Cloud object storage architecture, bucket access policies, lifecycle rules, and media asset hosting.'
     },
     {
-      title: 'ApsaraDB RDS Fundamentals',
+      title: 'ApsaraDB RDS Fundamentals (2025)',
       issuer: 'Alibaba Cloud',
       image: 'images/certifications/alibaba-rds.png',
-      description: 'Relational Database Service management on Alibaba Cloud.'
+      description: 'Managed relational database service configuration, backup strategies, read-replicas, and MySQL instance tuning.'
     },
     {
-      title: 'IoT Foundations: Operating Systems Fundamentals',
+      title: 'IoT Foundations: Operating Systems Fundamentals (2025)',
       issuer: 'IoT Academy',
       image: 'images/certifications/CertificateOfCompletion_IoT Foundations Operating Systems Fundamentals_pages-to-jpg-0001.jpg',
-      description: 'Operating system concepts for IoT device development.'
+      description: 'Operating system principles, kernel processes, memory management, and hardware interfacing for embedded devices.'
     },
     {
-      title: 'Vibe Code and Agentic Coding',
-      issuer: 'AI Seminar',
-      description: 'Modern AI-assisted development techniques including agentic workflows, prompt engineering, and AI-powered coding practices.'
+      title: 'Modern AI-Assisted Engineering & Workflows',
+      issuer: 'AI Developer Seminar',
+      description: 'Professional AI-assisted development practices, agentic coding workflows, prompt engineering, and LLM-assisted system design.'
+    }
+  ],
+
+  activities: [
+    {
+      organization: 'Codability Tech Student Organization (CTSO)',
+      role: 'Member',
+      description: 'Participated in IT workshops, seminars, technical events, and technology initiatives.'
+    },
+    {
+      organization: 'VIBE CODE AND AGENTIC CODING Online Seminar',
+      role: 'Participant',
+      description: 'Attended a technical seminar on AI-assisted software development, modern coding workflows, and agentic programming concepts.'
     }
   ],
 
   experience: [
     {
-      title: 'Technical Support & Customer Communication',
-      description: 'Handled customer inquiries and chat support while maintaining professional communication and problem resolution. Developed strong client-facing skills and technical troubleshooting abilities.'
+      title: 'Online Order & Customer Support',
+      period: 'May – July 2025',
+      organization: 'Online Store / Small Business Operations (Remote)',
+      description: 'Managed online customer inquiries via live chat and social messaging platforms, providing timely details on products, order status, and delivery tracking. Handled order updates, cancellations, and issue resolution politely to maintain positive customer satisfaction.'
     },
     {
-      title: 'Web & Mobile Development Projects',
-      description: 'Designed and developed academic and commissioned systems focused on solving real-world operational challenges. Led full-cycle development from requirements gathering to deployment.'
+      title: 'Systems & Mobile Application Developer',
+      period: '2023 – Present',
+      organization: 'Capstone & Commissioned Client Projects',
+      description: 'Designed and engineered full-cycle systems for real clients and community stakeholders: the IoT-assisted Barangay San Manuel Information Kiosk System (Angular/MySQL), the JDE Tailoring Order Management System (PHP/MySQL), and the CashTrack mobile finance app (Android/SQLite).'
     }
   ],
 
   resume: {
-    file: '/resume/Neil_Enrera_CV.pdf',
-    label: 'View Resume'
+    file: '/resume/Resume.pdf',
+    label: 'View Resume (PDF)'
   },
 
   contact: {
-    email: 'neilandreienrera@gmail.com',
+    email: 'andreienrera@gmail.com',
     github: 'https://github.com/Neil-Enrera',
     linkedin: 'https://www.linkedin.com/in/neil-andrei-enrera-41339b288/',
-    facebook: 'https://www.facebook.com/neilxbzjsj/',
     formAction: ''
   }
 };

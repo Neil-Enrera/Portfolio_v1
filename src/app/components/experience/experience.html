@@ -6,7 +6,7 @@
         Professional Background
       </h2>
       <p class="section-subtitle">
-        Hands-on experience in technical support, development, and customer communication.
+        Hands-on experience in full-cycle system development, technical support, and operational problem-solving.
       </p>
     </div>
 
@@ -16,13 +16,25 @@
           @if (i < data.experience.length - 1) {
             <div class="absolute left-[15px] top-8 bottom-0 w-px bg-gray-200"></div>
           }
-          <div class="w-8 h-8 border border-gray-900 bg-white flex items-center justify-center flex-shrink-0">
+          <div class="w-8 h-8 border border-gray-900 bg-white flex items-center justify-center flex-shrink-0 z-10">
             <span class="w-2 h-2 bg-gray-900"></span>
           </div>
-          <div class="flex-1 min-w-0 pt-1">
-            <div class="card p-5">
-              <h3 class="text-sm font-bold text-gray-900 mb-2">{{ item.title }}</h3>
-              <p class="text-[12px] text-gray-600 leading-relaxed">{{ item.description }}</p>
+          <div class="flex-1 min-w-0 pt-0.5">
+            <div class="card p-6 card-hover border border-gray-200">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                <h3 class="text-base font-bold text-gray-900">{{ item.title }}</h3>
+                @if (item.period) {
+                  <span class="text-[11px] font-mono text-gray-500 bg-gray-100 px-2 py-0.5 border border-gray-200 w-fit">
+                    {{ item.period }}
+                  </span>
+                }
+              </div>
+              @if (item.organization) {
+                <p class="text-xs font-mono text-gray-500 mb-3 flex items-center gap-1.5">
+                  <span>{{ item.organization }}</span>
+                </p>
+              }
+              <p class="text-sm text-gray-600 leading-relaxed">{{ item.description }}</p>
             </div>
           </div>
         </div>

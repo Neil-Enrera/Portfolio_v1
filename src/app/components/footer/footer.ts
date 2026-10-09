@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { portfolio } from '../../shared/data/portfolio';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.css'
 })
 export class FooterComponent {
+  data = portfolio;
   currentYear = new Date().getFullYear();
 }

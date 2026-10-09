@@ -1,154 +1,244 @@
-<section id="projects" class="py-20 md:py-28 bg-gray-50">
+<section id="projects" class="py-20 md:py-28 bg-gray-50 border-y border-gray-200">
   <div class="section-container">
     <div class="text-center max-w-2xl mx-auto mb-14">
       <span class="section-label justify-center">Projects</span>
       <h2 class="section-title">
-        Case Studies
+        Case Studies & Systems
       </h2>
       <p class="section-subtitle">
-        Real-world projects showing how I transform business needs into technical solutions.
+        End-to-end applications demonstrating business analysis, database architecture, and full stack engineering.
       </p>
     </div>
 
     @if (data.projects.length) {
-      <div class="space-y-4">
+      <div class="space-y-6">
         @for (project of data.projects; track project.id) {
-          <div class="card overflow-hidden card-hover">
+          <div class="card overflow-hidden card-hover bg-white border border-gray-200">
             <div class="p-6 md:p-8">
-              <div class="flex items-start gap-4">
+              <!-- Header Row -->
+              <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
                 <div class="flex-1 min-w-0">
-                  <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[10px] uppercase tracking-widest font-medium text-gray-500 border border-gray-200 px-2 py-0.5">
+                  <div class="flex flex-wrap items-center gap-2 mb-2">
+                    @if (project.projectType) {
+                      <span class="tag font-mono text-[10px] uppercase font-bold tracking-wider text-gray-900 bg-gray-200 border-gray-300">
+                        {{ project.projectType }}
+                      </span>
+                    }
+                    <span class="tag font-mono text-[10px] uppercase font-medium tracking-wider text-gray-600 bg-gray-100">
                       {{ project.category }}
                     </span>
                     @if (project.organization) {
-                      <span class="text-[11px] text-gray-400">{{ project.organization }}</span>
+                      <span class="text-[11px] text-gray-500 font-mono flex items-center gap-1.5">
+                        <span class="text-gray-300">/</span> {{ project.organization }}
+                      </span>
                     }
                   </div>
-                  <h3 class="text-base md:text-lg font-bold text-gray-900">{{ project.title }}</h3>
-                  <p class="text-[11px] text-gray-400 mt-0.5">Role: {{ project.role }}</p>
+                  <h3 class="text-lg md:text-xl font-bold text-gray-900 tracking-tight">{{ project.title }}</h3>
+                  <p class="text-[12px] text-gray-500 font-mono mt-0.5">Role: <span class="text-gray-800 font-medium">{{ project.role }}</span></p>
                 </div>
-                <button
-                  (click)="toggleProject(project.id)"
-                  class="flex-shrink-0 px-4 py-2 text-[11px] uppercase tracking-widest font-medium text-gray-700 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors cursor-pointer"
-                >
-                  {{ expandedProject() === project.id ? 'Show Less' : 'View Study' }}
-                </button>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-2 flex-shrink-0 mt-2 md:mt-0">
+                  @if (project.githubUrl) {
+                    <a
+                      [href]="project.githubUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="px-3.5 py-2 text-[11px] font-mono uppercase tracking-wider font-semibold text-gray-700 border border-gray-200 hover:border-gray-900 hover:text-gray-900 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                      title="View GitHub Repository"
+                    >
+                      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                      Code
+                    </a>
+                  }
+                  <button
+                    (click)="toggleProject(project.id)"
+                    class="px-4 py-2 text-[11px] font-mono uppercase tracking-wider font-semibold text-white bg-gray-900 border border-gray-900 hover:bg-gray-800 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                  >
+                    {{ expandedProject() === project.id ? 'Collapse' : 'Case Study' }}
+                    <svg class="w-3.5 h-3.5 transition-transform" [class.rotate-180]="expandedProject() === project.id" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
-              <p class="text-sm text-gray-600 mt-3">{{ project.summary }}</p>
+              <!-- Summary -->
+              <p class="text-sm md:text-base text-gray-600 mt-3 leading-relaxed">{{ project.summary }}</p>
 
+              <!-- Key Metrics / Highlights -->
+              @if (project.metrics.length) {
+                <div class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-gray-100">
+                  @for (metric of project.metrics; track metric) {
+                    <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-gray-700 bg-gray-100 px-2.5 py-1 border border-gray-200">
+                      <svg class="w-3 h-3 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {{ metric }}
+                    </span>
+                  }
+                </div>
+              }
+
+              <!-- Expanded Detailed Case Study -->
               @if (expandedProject() === project.id) {
                 <div class="mt-6 pt-6 border-t border-gray-200 space-y-6 animate-fade-in-up">
                   @let images = getProjectImages(project);
                   @if (images.length) {
-                    <div class="relative border border-gray-200 bg-gray-50">
+                    <div class="space-y-3">
+                      <div class="relative border border-gray-200 bg-gray-950 overflow-hidden">
+                        @if (images.length > 1) {
+                          <button
+                            (click)="prevInlineImage(images)"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 border border-white/20 bg-black/70 flex items-center justify-center text-white hover:bg-black transition-all cursor-pointer"
+                            aria-label="Previous image"
+                          >
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                          </button>
+                          <button
+                            (click)="nextInlineImage(images)"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 border border-white/20 bg-black/70 flex items-center justify-center text-white hover:bg-black transition-all cursor-pointer"
+                            aria-label="Next image"
+                          >
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </button>
+                          <div class="absolute top-3 right-3 z-10 bg-black/80 border border-white/10 text-white text-[10px] font-mono uppercase tracking-widest px-2.5 py-1">
+                            Screenshot {{ inlineImageIndex() + 1 }} of {{ images.length }}
+                          </div>
+                        }
+                        <div class="group relative cursor-pointer" (click)="openGallery(images, inlineImageIndex())">
+                          <img
+                            [src]="images[inlineImageIndex()]"
+                            [alt]="project.title"
+                            class="w-full h-auto max-h-[420px] object-contain mx-auto"
+                            loading="lazy"
+                            (error)="imageError($event)"
+                          />
+                          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                            <div class="px-3 py-1.5 border border-white/40 bg-black/80 text-white font-mono text-[11px] flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                              </svg>
+                              Click to Enlarge Fullscreen ({{ images.length }} Screenshots)
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                       @if (images.length > 1) {
-                        <button
-                          (click)="prevInlineImage(images)"
-                          class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 border border-white/30 bg-black/40 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/60 transition-all cursor-pointer"
-                          aria-label="Previous image"
-                        >
-                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" />
-                          </svg>
-                        </button>
-                        <button
-                          (click)="nextInlineImage(images)"
-                          class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 border border-white/30 bg-black/40 flex items-center justify-center text-white/80 hover:text-white hover:bg-black/60 transition-all cursor-pointer"
-                          aria-label="Next image"
-                        >
-                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
-                          </svg>
-                        </button>
-                        <div class="absolute top-2 right-2 z-10 bg-black/60 text-white text-[10px] uppercase tracking-widest px-2 py-0.5">
-                          {{ inlineImageIndex() + 1 }} / {{ images.length }}
+                        <div class="flex items-center gap-2 overflow-x-auto pb-2 pt-1 scrollbar-thin">
+                          @for (img of images; track $index) {
+                            <button
+                              (click)="inlineImageIndex.set($index)"
+                              class="flex-shrink-0 w-16 h-11 border transition-all duration-150 overflow-hidden bg-gray-900 cursor-pointer"
+                              [class.border-gray-900]="$index === inlineImageIndex()"
+                              [class.ring-2]="$index === inlineImageIndex()"
+                              [class.ring-gray-900]="$index === inlineImageIndex()"
+                              [class.opacity-100]="$index === inlineImageIndex()"
+                              [class.border-gray-300]="$index !== inlineImageIndex()"
+                              [class.opacity-50]="$index !== inlineImageIndex()"
+                              [attr.aria-label]="'View screenshot ' + ($index + 1)"
+                            >
+                              <img [src]="img" class="w-full h-full object-cover" [alt]="'Thumbnail ' + ($index + 1)" loading="lazy" />
+                            </button>
+                          }
                         </div>
                       }
-                      <div class="group relative cursor-pointer" (click)="openGallery(images, inlineImageIndex())">
-                        <img
-                          [src]="images[inlineImageIndex()]"
-                          [alt]="project.title"
-                          class="w-full h-auto max-h-96 object-contain"
-                          loading="lazy"
-                          (error)="imageError($event)"
-                        />
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center">
-                          <div class="w-10 h-10 border border-gray-300 bg-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                            </svg>
-                          </div>
+                    </div>
+                  }
+
+                  <!-- Problem & Solution -->
+                  <div class="grid md:grid-cols-2 gap-6 bg-gray-50 p-5 border border-gray-200">
+                    <div>
+                      <h4 class="text-[11px] font-mono uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <span class="pixel-dot bg-red-600"></span>
+                        Problem Statement
+                      </h4>
+                      <p class="text-sm text-gray-700 leading-relaxed">{{ project.problem }}</p>
+                    </div>
+                    <div>
+                      <h4 class="text-[11px] font-mono uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <span class="pixel-dot bg-emerald-600"></span>
+                        Architected Solution
+                      </h4>
+                      <p class="text-sm text-gray-700 leading-relaxed">{{ project.solution }}</p>
+                    </div>
+                  </div>
+
+                  <!-- Client Engagement & Feedback Loop (When Available) -->
+                  @if (project.clientEngagement) {
+                    <div class="p-5 border border-gray-900 bg-gray-900 text-white">
+                      <h4 class="text-[11px] font-mono uppercase tracking-widest font-bold text-gray-200 mb-3 flex items-center gap-2">
+                        <span class="pixel-dot bg-emerald-400"></span>
+                        Client Engagement & Delivery Lifecycle
+                      </h4>
+                      <div class="grid md:grid-cols-3 gap-4 text-xs">
+                        <div class="p-3 bg-gray-800/80 border border-gray-700">
+                          <p class="font-mono text-gray-400 uppercase text-[10px] mb-1 font-semibold">1. Requirements Discovery</p>
+                          <p class="text-gray-200 leading-relaxed">{{ project.clientEngagement.discovery }}</p>
+                        </div>
+                        <div class="p-3 bg-gray-800/80 border border-gray-700">
+                          <p class="font-mono text-gray-400 uppercase text-[10px] mb-1 font-semibold">2. Feedback & Iteration</p>
+                          <p class="text-gray-200 leading-relaxed">{{ project.clientEngagement.revision }}</p>
+                        </div>
+                        <div class="p-3 bg-gray-800/80 border border-gray-700">
+                          <p class="font-mono text-gray-400 uppercase text-[10px] mb-1 font-semibold">3. Outcome & Handover</p>
+                          <p class="text-gray-200 leading-relaxed">{{ project.clientEngagement.outcome }}</p>
                         </div>
                       </div>
                     </div>
                   }
-                  <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
-                        <span class="pixel-dot bg-gray-500"></span>
-                        Problem
-                      </h4>
-                      <p class="text-sm text-gray-600 leading-relaxed">{{ project.problem }}</p>
-                    </div>
-                    <div>
-                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
-                        <span class="pixel-dot bg-gray-500"></span>
-                        Solution
-                      </h4>
-                      <p class="text-sm text-gray-600 leading-relaxed">{{ project.solution }}</p>
-                    </div>
-                  </div>
 
+                  <!-- Process Flow -->
                   @if (project.processFlow) {
-                    <div>
-                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <span class="pixel-dot bg-gray-500"></span>
-                        Process Flow
+                    <div class="p-5 border border-gray-200 bg-white">
+                      <h4 class="text-[11px] font-mono uppercase tracking-widest font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <span class="pixel-dot bg-gray-900"></span>
+                        System Workflow & State Transitions
                       </h4>
                       <div class="flex flex-wrap gap-2">
                         @for (step of project.processFlow; track step; let i = $index) {
-                          <div class="flex items-center gap-2">
-                            <span class="w-6 h-6 border border-gray-300 text-gray-700 text-[10px] font-bold flex items-center justify-center flex-shrink-0">
+                          <div class="flex items-center gap-2 bg-gray-50 border border-gray-200 px-3 py-1.5">
+                            <span class="w-5 h-5 bg-gray-900 text-white font-mono text-[10px] font-bold flex items-center justify-center flex-shrink-0">
                               {{ i + 1 }}
                             </span>
-                            <span class="text-sm text-gray-600">{{ step }}</span>
-                            @if (i < project.processFlow.length - 1) {
-                              <svg class="w-3 h-3 text-gray-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
-                              </svg>
-                            }
+                            <span class="text-xs font-medium text-gray-700">{{ step }}</span>
                           </div>
                         }
                       </div>
                     </div>
                   }
 
-                  <div>
-                    <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-3 flex items-center gap-2">
-                      <span class="pixel-dot bg-gray-500"></span>
-                      Architecture
+                  <!-- Architecture Breakdown -->
+                  <div class="p-5 border border-gray-200 bg-gray-50">
+                    <h4 class="text-[11px] font-mono uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
+                      <span class="pixel-dot bg-gray-900"></span>
+                      System Architecture & Pattern
                     </h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">{{ project.architecture }}</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">{{ project.architecture }}</p>
                   </div>
 
+                  <!-- Tech & Features Grid -->
                   <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-3">Technologies</h4>
+                    <div class="p-5 border border-gray-200 bg-white">
+                      <h4 class="text-[11px] font-mono uppercase tracking-widest font-bold text-gray-900 mb-3">Technologies Used</h4>
                       <div class="flex flex-wrap gap-1.5">
                         @for (tech of project.technologies; track tech) {
                           <span class="tag">{{ tech }}</span>
                         }
                       </div>
                     </div>
-                    <div>
-                      <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-3">Key Features</h4>
-                      <ul class="space-y-1.5">
+                    <div class="p-5 border border-gray-200 bg-white">
+                      <h4 class="text-[11px] font-mono uppercase tracking-widest font-bold text-gray-900 mb-3">Key Features</h4>
+                      <ul class="space-y-2">
                         @for (feature of project.features; track feature) {
-                          <li class="flex items-start gap-2 text-sm text-gray-600">
-                            <svg class="w-3.5 h-3.5 text-gray-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+                          <li class="flex items-start gap-2 text-xs md:text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                             </svg>
                             {{ feature }}
                           </li>
@@ -157,12 +247,12 @@
                     </div>
                   </div>
 
-                  <div>
-                    <h4 class="text-[11px] uppercase tracking-widest font-bold text-gray-900 mb-2 flex items-center gap-2">
-                      <span class="pixel-dot bg-gray-500"></span>
-                      Lessons Learned
+                  <!-- Key Engineering Takeaway / Lessons Learned -->
+                  <div class="p-5 border-l-2 border-gray-900 bg-gray-100">
+                    <h4 class="text-[11px] font-mono uppercase tracking-widest font-bold text-gray-900 mb-1.5 flex items-center gap-2">
+                      Engineering Takeaway
                     </h4>
-                    <p class="text-sm text-gray-500 leading-relaxed italic">
+                    <p class="text-sm text-gray-700 leading-relaxed italic">
                       "{{ project.lessonsLearned }}"
                     </p>
                   </div>
@@ -173,7 +263,7 @@
         }
       </div>
     } @else {
-      <p class="text-center text-gray-400 text-sm">No projects to display.</p>
+      <p class="text-center text-gray-400 text-sm font-mono">No projects to display.</p>
     }
   </div>
 </section>

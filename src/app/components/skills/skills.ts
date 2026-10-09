@@ -11,10 +11,13 @@ export class SkillsComponent {
   data = portfolio;
 
   skillsData = [
-    { title: 'Frontend', items: this.data.skills.frontend, color: 'accent' },
-    { title: 'Backend', items: this.data.skills.backend, color: 'navy' },
-    { title: 'Database', items: this.data.skills.database, color: 'accent' },
-    { title: 'Tools', items: this.data.skills.tools, color: 'navy' },
-    { title: 'AI & Agentic', items: this.data.skills.ai, color: 'accent' },
+    { title: 'Programming Languages', items: this.data.skills.languages },
+    { title: 'Frameworks & Runtime', items: this.data.skills.frameworks },
+    { title: 'Database & Modeling', items: this.data.skills.database },
+    { title: 'Web Technologies & APIs', items: this.data.skills.web },
+    { title: 'Cloud & Developer Tools', items: this.data.skills.toolsAndCloud },
+    { title: 'IoT & Embedded Systems', items: this.data.skills.hardwareAndIoT },
+    { title: 'Client & Business Operations', items: this.data.skills.operations },
+    { title: 'AI & Engineering Workflows', items: this.data.skills.ai },
   ];
 }
