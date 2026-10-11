@@ -67,10 +67,10 @@ export const portfolio = {
     frameworks: ['Angular', 'React', 'Laravel', 'Node.js', 'Express.js'],
     database: ['MySQL', 'SQLite', 'Database Modeling', 'Schema Normalization (3NF)', 'Query Optimization'],
     web: ['HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'RESTful APIs', 'Responsive Design'],
-    toolsAndCloud: ['Git', 'GitHub', 'Docker', 'AWS', 'Alibaba Cloud', 'Linux CLI', 'Android Studio', 'Figma', 'VS Code', 'Postman'],
+    toolsAndCloud: ['Git', 'GitHub', 'AWS', 'Alibaba Cloud', 'Linux CLI', 'Android Studio', 'Figma', 'VS Code', 'Postman'],
     hardwareAndIoT: ['IoT Systems', 'RFID Authentication', 'Sensors & Microcontrollers', 'Embedded Systems'],
     operations: ['Customer Communication', 'Order Management & Delivery Tracking', 'Requirements Discovery'],
-    ai: ['AI-Assisted Development', 'Agentic Coding Workflows', 'Prompt Engineering', 'LLM Integration']
+    ai: ['AI-Assisted Development', 'Agentic Coding Workflows', 'Prompt Engineering']
   },
 
   projects: [
@@ -435,7 +435,7 @@ export const portfolio = {
     {
       title: 'Modern AI-Assisted Engineering & Workflows',
       issuer: 'AI Developer Seminar',
-      description: 'Professional AI-assisted development practices, agentic coding workflows, prompt engineering, and LLM-assisted system design.'
+      description: 'Professional AI-assisted development practices, agentic coding workflows, prompt engineering, and modern system design.'
     }
   ],
 

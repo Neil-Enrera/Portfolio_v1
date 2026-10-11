@@ -1,12 +1,12 @@
-<section id="projects" class="py-20 md:py-28 bg-gray-50 border-y border-gray-200">
+<section id="projects" class="py-20 md:py-28 bg-white border-t border-gray-200">
   <div class="section-container">
     <div class="text-center max-w-2xl mx-auto mb-14">
-      <span class="section-label justify-center">Projects</span>
+      <span class="section-label justify-center">Systems</span>
       <h2 class="section-title">
-        Case Studies & Systems
+        Developed Systems
       </h2>
       <p class="section-subtitle">
-        End-to-end applications demonstrating business analysis, database architecture, and full stack engineering.
+        Web applications, mobile apps, and IoT systems built for real clients, community organizations, and practical workflows.
       </p>
     </div>
 
@@ -55,7 +55,7 @@
                     (click)="toggleProject(project.id)"
                     class="px-4 py-2 text-[11px] font-mono uppercase tracking-wider font-semibold text-white bg-gray-900 border border-gray-900 hover:bg-gray-800 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
                   >
-                    {{ expandedProject() === project.id ? 'Collapse' : 'Case Study' }}
+                    {{ expandedProject() === project.id ? 'Hide Details' : 'View Details' }}
                     <svg class="w-3.5 h-3.5 transition-transform" [class.rotate-180]="expandedProject() === project.id" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>

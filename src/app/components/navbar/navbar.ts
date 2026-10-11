@@ -17,8 +17,8 @@ export class NavbarComponent implements OnDestroy {
   navItems = [
     { label: 'About', section: 'about' },
     { label: 'Expertise', section: 'expertise' },
-    { label: 'Projects', section: 'projects' },
-    { label: 'Courses & Certifications', section: 'certifications' },
+    { label: 'Certifications', section: 'certifications' },
+    { label: 'Systems', section: 'projects' },
     { label: 'Contact', section: 'contact' }
   ];
 

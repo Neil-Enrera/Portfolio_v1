@@ -83,7 +83,7 @@ portfolio_v1/
 │   │   │   ├── about/         # Background & engineering approach
 │   │   │   ├── expertise/     # Core domain capabilities
 │   │   │   ├── skills/        # Organized technology toolkits
-│   │   │   ├── projects/      # Case studies & interactive galleries
+│   │   │   ├── projects/      # Developed systems & interactive galleries
 │   │   │   ├── experience/    # Work history & customer support
 │   │   │   ├── certifications/# Verified credentials & zoom modal
 │   │   │   ├── system-design/ # ERD & architectural workflows
