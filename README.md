@@ -8,7 +8,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=for-the-badge)](LICENSE)
 
-**BS Information Technology | Web, Mobile & IoT Developer**  
+**BS Information Technology | Cloud Infrastructure, Web Systems & AI-Assisted Development**  
 National University – Fairview (Dean's Lister 2024)
 
 [Explore Live Demo](https://neilenrera.vercel.app) • [View Resume](https://neilenrera.vercel.app/resume/Resume.pdf) • [Connect on LinkedIn](https://www.linkedin.com/in/neil-andrei-enrera-41339b288/)
@@ -28,8 +28,8 @@ Designed with a modern monochromatic technical aesthetic, the portfolio showcase
 ## 🚀 Key Systems Featured
 
 1. **Barangay San Manuel — IMS & IoT Kiosk System**
-   - E-Governance platform featuring an automated self-service resident kiosk, RFID card authentication, and administrative clearance processing.
-   - *Stack:* Angular, TypeScript, MySQL (3NF), RESTful APIs, RFID, IoT.
+   - E-Governance platform featuring an automated self-service resident kiosk, RFID card authentication, and administrative clearance processing deployed on an AWS Lightsail Linux VPS with Cloudflare DNS/SSL.
+   - *Stack:* Angular, TypeScript, MySQL (3NF), RESTful APIs, AWS Lightsail, Nginx, Cloudflare, RFID, IoT.
    - *Gallery:* 51-screenshot case study covering Kiosk, Admin Portal, and Resident Services.
 
 2. **JDE Work of Our Hands — Tailoring Order Management**

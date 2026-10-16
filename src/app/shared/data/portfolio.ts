@@ -1,15 +1,15 @@
 export const portfolio = {
   name: 'Neil Andrei M. Enrera',
-  tagline: 'BS Information Technology | Web, Mobile & IoT Developer',
+  tagline: 'BS Information Technology | Cloud Infrastructure, Web Systems & AI-Assisted Development',
   location: 'City of San Jose Del Monte, Bulacan',
   phone: '09476141605',
   email: 'andreienrera@gmail.com',
-  heroHeadline: 'Building Practical Digital Systems, Web & Mobile Applications, and IoT Solutions',
-  heroSubtext: 'BS Information Technology student at National University – Fairview (Dean\'s Lister 2024) specializing in Mobile and Internet Technologies. Experienced in client-commissioned systems, small business order support, database modeling, and full-cycle development with Angular, Laravel, PHP, and IoT integration.',
+  heroHeadline: 'Building Cloud-Deployed Digital Systems, Scalable Web Applications, and Modern IT Solutions',
+  heroSubtext: 'BS Information Technology student at National University – Fairview (Dean\'s Lister 2024) specializing in Mobile and Internet Technologies. Experienced in client-commissioned systems, cloud server deployment (AWS / Linux), database modeling, and AI-assisted engineering workflows.',
 
   about: {
-    objective: 'BS Information Technology student specializing in Mobile and Internet Technologies with hands-on experience developing web and mobile applications, information management systems, and IoT-integrated solutions.',
-    details: 'I bridge practical business workflows with modern technology. My background combines real-world small business customer support and order coordination with full-cycle software engineering—from commissioned client applications (CashTrack) and capstone enterprise solutions (JDE Tailoring & Barangay San Manuel IoT Kiosk System) to embedded sensor prototypes. Seeking an IT or Software Engineering internship where I can deliver immediate value through technical problem-solving and dependable collaboration.'
+    objective: 'BS Information Technology student specializing in Mobile and Internet Technologies with hands-on experience developing web applications, cloud-hosted systems, and modern AI-assisted engineering workflows.',
+    details: 'I bridge practical business workflows with modern technology. My background combines real-world small business customer support and order coordination with full-cycle software engineering—from commissioned client applications (CashTrack) and capstone cloud-deployed solutions (Barangay San Manuel on AWS & JDE Tailoring) to embedded sensor prototypes. I actively leverage AI-assisted tools and agentic coding workflows to rapidly prototype, validate, and deliver reliable digital systems.'
   },
 
   education: {
@@ -86,15 +86,15 @@ export const portfolio = {
       githubUrl: 'https://github.com/Neil-Enrera',
       liveUrl: '',
       metrics: [
+        'Cloud-Hosted on AWS Lightsail VPS (Nginx & Cloudflare)',
         'RFID-Based Resident Authentication',
-        'QR Code Document Verification',
         'Automated Certificate & Clearance Processing',
         'Admin Dashboard with Demographic Analytics'
       ],
       clientEngagement: {
         discovery: 'Collaborated directly with Barangay San Manuel officials to identify long queue times and manual paperwork bottlenecks during clearance and document issuance.',
         revision: 'Designed an IoT self-service kiosk workflow supporting RFID card tap and verification to streamline resident verification before administrative approval.',
-        outcome: 'Architected with Angular, MySQL, and RESTful APIs with role-based administrative dashboards for barangay governance.'
+        outcome: 'Architected with Angular, MySQL, and RESTful APIs with role-based administrative dashboards, deployed on an AWS Lightsail Linux cloud instance.'
       },
       problem: 'Barangay San Manuel relied on manual paper-based filing cabinets and physical logbooks for resident records, clearance requests, and blotter case tracking—causing lengthy queues for residents and manual reporting overhead.',
       solution: 'Developed a modern web platform integrated with an IoT kiosk, enabling RFID resident authentication, instant online document requests (Clearance, Indigency, Residency), and administrative reporting.',
@@ -106,8 +106,8 @@ export const portfolio = {
         'Payment/release logged and recorded in MySQL database',
         'Blotter incidents and community records maintained'
       ],
-      architecture: 'Angular frontend interface communicating via RESTful APIs with normalized MySQL database (3NF) and hardware RFID scanner integration.',
-      technologies: ['Angular', 'TypeScript', 'MySQL', 'RESTful APIs', 'RFID', 'IoT'],
+      architecture: 'Angular frontend interface communicating via RESTful APIs with a normalized MySQL database (3NF), hardware RFID scanner integration, and production deployment on an AWS Lightsail Linux VPS configured with an Nginx reverse proxy and Cloudflare DNS/SSL.',
+      technologies: ['Angular', 'TypeScript', 'MySQL', 'RESTful APIs', 'AWS Lightsail', 'Nginx', 'Cloudflare', 'RFID', 'IoT'],
       features: [
         'IoT self-service kiosk with RFID tap authentication',
         'Automated document issuance (Barangay Clearance, Certificate of Indigency, Residency)',
@@ -380,6 +380,11 @@ export const portfolio = {
       title: 'Use Case & Requirements Specs',
       description: 'Rigorous functional requirements and actor interaction diagrams bridging stakeholder needs with technical implementation.',
       items: ['Formal use case specifications', 'Activity & sequence diagrams', 'Requirement traceability matrices', 'Edge case & error handling specs']
+    },
+    {
+      title: 'Cloud Infrastructure & Deployment',
+      description: 'Designing resilient hosting topologies leveraging cloud virtual servers, reverse proxying, DNS management, and edge caching.',
+      items: ['AWS Lightsail & EC2 server configuration', 'Nginx reverse proxying & SSL termination', 'Cloudflare DNS routing & CDN caching', 'Alibaba Cloud infrastructure services']
     }
   ],
 
