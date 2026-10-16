@@ -1,9 +1,9 @@
 <section #heroSection id="hero" class="relative min-h-screen flex items-center bg-white overflow-hidden pt-14 md:pt-16">
   <div class="absolute inset-0 pointer-events-none pixel-grid"></div>
 
-  <div class="section-container relative z-10 w-full pt-16 pb-16 md:pt-24 md:pb-24 lg:pt-28">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div class="space-y-8">
+  <div class="section-container relative z-10 w-full pt-20 pb-16 md:pt-28 md:pb-20">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div class="space-y-8 pt-6">
         <div class="flex items-center gap-2 text-gray-400 font-mono text-[11px] uppercase tracking-widest">
           <span class="pixel-dot bg-gray-400"></span>
           <span>{{ data.tagline }}</span>
@@ -47,18 +47,21 @@
         </div>
       </div>
 
-      <div class="flex flex-col items-center lg:items-end">
-        <div class="relative">
-          <div class="border border-gray-200 p-1">
-            <img src="images/profile/New-Profile.png" alt="{{ data.name }}"
-              class="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-cover" />
+      <!-- Right Column: Profile Image Aligned with Headline and Centered in Column -->
+      <div class="flex flex-col items-end justify-center pt-15 lg:pt-30">
+        <div class="flex flex-col items-center">
+          <div class="relative">
+            <div class="border border-gray-200 p-1 bg-white">
+              <img src="images/profile/New-Profile.png" alt="{{ data.name }}"
+                class="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-cover" />
+            </div>
+            <div class="absolute -bottom-3 -right-3 w-full h-full border border-gray-200 -z-10"></div>
+            <div class="absolute -top-3 -left-3 w-full h-full border border-gray-100 -z-10"></div>
           </div>
-          <div class="absolute -bottom-3 -right-3 w-full h-full border border-gray-200 -z-10"></div>
-          <div class="absolute -top-3 -left-3 w-full h-full border border-gray-100 -z-10"></div>
-        </div>
-        <div class="text-center mt-5">
-          <h2 class="text-base font-bold text-gray-900">{{ data.name }}</h2>
-          <p class="text-[11px] font-mono text-gray-400 uppercase tracking-widest mt-1">{{ data.tagline }}</p>
+          <div class="text-center mt-5 max-w-xs">
+            <h2 class="text-base font-bold text-gray-900">{{ data.name }}</h2>
+            <p class="text-[11px] font-mono text-gray-400 uppercase tracking-widest mt-1">{{ data.tagline }}</p>
+          </div>
         </div>
       </div>
     </div>
