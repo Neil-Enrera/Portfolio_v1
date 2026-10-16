@@ -65,40 +65,6 @@ Designed with a modern monochromatic technical aesthetic, the portfolio showcase
 
 ---
 
-## 📁 Repository Structure
-
-```text
-portfolio_v1/
-├── public/
-│   ├── images/
-│   │   ├── projects/          # High-resolution project screenshots
-│   │   ├── certifications/    # Credential certificates (Cisco, Alibaba, IoT)
-│   │   └── profile/           # Profile images
-│   └── resume/
-│       └── Resume.pdf         # Downloadable CV
-├── src/
-│   ├── app/
-│   │   ├── components/        # Feature components
-│   │   │   ├── hero/          # Terminal-inspired hero section
-│   │   │   ├── about/         # Background & engineering approach
-│   │   │   ├── expertise/     # Core domain capabilities
-│   │   │   ├── skills/        # Organized technology toolkits
-│   │   │   ├── projects/      # Developed systems & interactive galleries
-│   │   │   ├── experience/    # Work history & customer support
-│   │   │   ├── certifications/# Verified credentials & zoom modal
-│   │   │   ├── system-design/ # ERD & architectural workflows
-│   │   │   └── contact/       # 1-click email copy & social links
-│   │   └── shared/
-│   │       ├── data/          # Centralized portfolio dataset
-│   │       └── image-gallery/ # Reusable fullscreen pan/zoom modal
-│   ├── index.html
-│   ├── styles.css
-│   └── main.ts
-└── angular.json
-```
-
----
-
 ## 💻 Getting Started Locally
 
 ### Prerequisites
